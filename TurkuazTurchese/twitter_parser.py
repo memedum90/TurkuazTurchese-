@@ -13,7 +13,7 @@
 # This program allows you to collect data from the reuters21578 training
 # corpus and store it into 5 different files in the Training_Corpus 
 # folder accordind to one of the 5 main topics
-
+print "mehmet"
 import codecs
 import csv
 import enchant
