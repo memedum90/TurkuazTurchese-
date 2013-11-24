@@ -1,3 +1,6 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+
 # Copyright (C) 2013 Federico Montori <fede.selmer@gmail.com>, Mehmet Durna <memdum@gmail.com>
 #
 # This program is free software; you can redistribute it and/or modify
@@ -14,27 +17,30 @@
 # corpus and store it into 5 different files in the Training_Corpus 
 # folder accordind to one of the 5 main topics
 
-import codecs
+#import codecs
 import csv
 import enchant
-import glob
+#import glob
 import nltk
-import os
+#import os
 import re
-import sys
+#import sys
 
 # Downloaded from https://bitbucket.org/spirit/guess_language
 from guess_language import guess_language
 from nltk.metrics import edit_distance
 # Downloaded from https://pypi.python.org/pypi/stemming/1.0#downloads
-from stemming.porter2 import stem
+#from stemming.porter2 import stem
 
-# Global list of tweets: every element is a dictionary
-archive_list = []
-
-# Add as dictionary the english language plus the bad words
-pwl = enchant.request_pwl_dict('dicts/bad-words.txt')
-Dict = enchant.DictWithPWL('en_US', 'dicts/bad-words.txt')
+# Function to mount the slang dictionary
+def mount_slang_dict():
+	with open('dicts/slang-dict', 'r') as slang:
+		slang = slang.read().split("\n")
+		del slang[-1]
+	slg = {}
+	for couple in slang:
+		slg[couple.split(" - ")[0]] = couple.split(" - ")[1]
+	return slg
 
 # Function to count uppercase letters in a string
 def n_upper_chars(string):
@@ -54,23 +60,29 @@ def n_bad_smile(string):
 
 # Function to correct spell errors FIXME
 def spell_correct(raword):
-	if len(raword) > 0:
-		if not (raword[0] == '@' or raword[0] == '#'):
-			suggestions = Dict.suggest(raword)
-			if (not Dict.check(raword)) and suggestions:
-				if edit_distance(suggestions[0], raword) < 3:
-					return stem(suggestions[0])
-				else:
-					return raword
-			else:
-				return stem(raword)
-		else: 
-			return raword
-	else:
-		return ""
+	if not (raword == "" or (raword[0] == '@' or raword[0] == '#')):
+		# Slang correction
+		if raword in slg.keys():
+			raword = slg[raword]
+		
+		#Type error
+		suggestions = Dict.suggest(raword)
+		if suggestions and not Dict.check(raword):
+			if edit_distance(suggestions[0], raword) < 2:
+				return suggestions[0]
+	return raword
+
+# Global list of tweets: every element is a dictionary
+archive_list = []
+
+# Add as dictionary the english language plus the bad words
+pwl = enchant.request_pwl_dict('dicts/bad-words.txt')
+#Dict = enchant.Dict('en_US')
+Dict = enchant.DictWithPWL('en_US', 'dicts/bad-words.txt')
+slg = mount_slang_dict()
 
 # Open the csv file and add every line to the archive list
-with open('twitter_archives/csv_processes/process_403_erdogan.csv', 'rb') as csvfile:
+with open('twitter_archives/csv_processes/process_414_justinbieber.csv', 'rb') as csvfile:
 	archive = csv.DictReader(csvfile, dialect='excel')
 	for csvrow in archive:
 		archive_list.append(csvrow)
@@ -80,49 +92,40 @@ with open("output", 'w') as f:
 	f.seek(0)
 	f.truncate()
 	
-for idx, tweet in enumerate(archive_list):
-	
-	# Retrieve the original utf-8 codification on the text
-	utftext = tweet[' text'].decode('utf-8')
-	
-	# Count uppercases, smiley, exclamation marks and question marks
-	tweet['uppercases'] = n_upper_chars(utftext)
-	tweet['marks'] = n_marks_chars(utftext)
-	tweet['good'] = n_good_smile(utftext)
-	tweet['bad'] = n_bad_smile(utftext)
-	
-	# Remove useless punctuation FIXME
-	utftext = re.sub('\. |\.\n', ' * ', utftext)		
-	utftext = ("".join(c for c in utftext if c not in ('!','.',':',',','?','(',')','"',"'",'/'))).lower()
-	# utftext = (" * " + re.sub('[0-9]+', 'QQQ', utftext)) NUMBERS
-	
-	# Guess the language of the text and eliminate everything that is not english
-	tw_lang = guess_language(utftext)
-	if not (tw_lang == 'en'):
-		archive_list.remove(tweet)
-
-	tweet['text'] = utftext
-	print tweet
-
-	# Slang correction TODO
-	
-	actualtext = ""
-	
-	# Spell corrector
-	#for word in utftext.split(" "):
-		#actualtext = actualtext + " ".join(word)
-		#utftext = utftext + " ".join(spell_correct(word.lower()))
-
-	#wordbyword = utftext.split(" ")
-	#del wordbyword[0]
-	#utftext = ""
-	#~ print wordbyword
-	#for kw in wordbyword:
-	#	if isinstance(kw, unicode):
-	#		utftext += spell_correct(kw) + " "
-	#utftext = " ".join([ spell_correct(kw) for kw in wordbyword])
+	for idx, tweet in enumerate(archive_list):
 		
-	# Tokenization TODO
-
-	f.write("Tweet #" + str(idx) + ": detected " + tw_lang + " language\n")
-	f.write(utftext.encode('utf-8')+'\n')
+		# Retrieve the original utf-8 codification on the text
+		utftext = tweet[' text'].decode('utf-8')
+		
+		# Count uppercases, smiley, exclamation marks and question marks
+		tweet[' uppercases'] = n_upper_chars(utftext)
+		tweet[' marks'] = n_marks_chars(utftext)
+		tweet[' good'] = n_good_smile(utftext)
+		tweet[' bad'] = n_bad_smile(utftext)
+		
+		# Remove useless punctuation and put everything in lower case FIXME
+		utftext = re.sub('\. |\.\n', ' * ', utftext)
+		utftext = re.sub('&amp', '&', utftext)
+		utftext = ("".join(c for c in utftext if c not in ('!','.',':',';',',','?','(',')','"',"'",'/'))).lower()
+		# utftext = (" * " + re.sub('[0-9]+', 'QQQ', utftext)) NUMBERS
+		
+		# Guess the language of the text and eliminate everything that is not English
+		tw_lang = guess_language(utftext)
+		#tw_lang = tweet[' user_lang']
+		if not (tw_lang == 'en'):
+			archive_list.remove(tweet)
+	
+		wordbyword = utftext.split(" ")
+		del wordbyword[0]
+		utftext = " ".join([ spell_correct(word) for word in wordbyword if isinstance(word, unicode)])
+			
+		tweet[' text_processed_unigrams'] = nltk.word_tokenize(utftext)
+		tweet[' text_processed_bigrams'] = nltk.bigrams(tweet[' text_processed_unigrams'])
+	
+		f.write("Tweet #" + str(idx) + ": detected " + str(tw_lang) + " language\n")
+		f.write(tweet[' text'].encode('utf-8')+'\n')
+		f.write(utftext.encode('utf-8')+'\n')
+		print str(idx) + str(tweet)
+		
+# WE STILL DON'T USE STEMMING
+# WE SHALL FIRST CORRECT SLANG, THE PUNCT, THEN TYPE
