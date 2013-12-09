@@ -1,0 +1,40 @@
+#!/bin/bash
+
+while true; do
+	python TT_main.py --no-proc religion &
+	sleep 300
+	python TT_main.py --no-proc church &
+	sleep 300
+	python TT_main.py --no-proc massacre &
+	sleep 300
+	python TT_main.py --no-proc holocaust &
+	sleep 300
+	python TT_main.py --no-proc gaymarriage &
+	sleep 300
+	python TT_main.py --no-proc euthanasia &
+	sleep 300
+	python TT_main.py --no-proc abortion &
+	sleep 300
+	python TT_main.py --no-proc feminism &
+	sleep 300
+	python TT_main.py --no-proc gender &
+	sleep 300
+	python TT_main.py --no-proc racism &
+	sleep 300
+	python TT_main.py --no-proc jesus &
+	sleep 300
+	python TT_main.py --no-proc communism &
+	sleep 300
+	python TT_main.py --no-proc terrorist &
+	sleep 300
+	python TT_main.py --no-proc muslim &
+	sleep 300
+	python TT_main.py --no-proc syria &
+	sleep 300
+	python TT_main.py --no-proc morsi &
+	sleep 300
+	python TT_main.py --no-proc erdogan &
+	sleep 300
+	python TT_main.py --no-proc islamist &
+	sleep 300
+done
