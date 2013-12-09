@@ -37,3 +37,20 @@ def process_vulgarity(list_of_words, Dic):
         if Dic.check(word):
             total += 1
     return total
+
+# Baseline function to compute the overall score of a conversation
+def compute_baseline_score(conver):
+    Tupp = 0
+    Tmrk = 0
+    Tgud = 0
+    Tbad = 0
+    Tvlg = 0
+    Tump = 0
+    for idx, tw in enumerate(conver):
+        Tupp += tw['uppercases']
+        Tmrk += tw['marks']
+        Tgud += tw['good']
+        Tbad += tw['bad']
+        Tvlg += tw['vulgarity']
+        Tump += tw['unpoliteness']
+    return float(0.2*Tupp + 1.6*Tmrk - (idx*0.2)*8.0*Tgud + 0.4*Tbad + 3.0*Tvlg + 6.0*Tump) / float(2*len(conver))
