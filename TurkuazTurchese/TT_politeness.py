@@ -59,11 +59,10 @@ def process_politeness(unigrams, bigrams):
         
         perplexity = [0.0,0.0,0.0,0.0,0.0]
         
-#         for bg in Cbigrams:            
-#             for c in range (0, 5):
-#                 perplexity[c] = math.log((uni_corpus[c][bg[0]] + voc_corpus[c]) / (bi_corpus[c][bg] + 1))
-        for ug in Cunigrams:            
+        for bg in Cbigrams:            
             for c in range (0, 5):
-                perplexity[c] = math.log((size_corpus[c] + voc_corpus[c]) / (uni_corpus[c][ug] + 1))        
-                
-        return perplexity.index(max(perplexity)) + 1
+                perplexity[c] += math.log(float(uni_corpus[c][bg[0]] + voc_corpus[c]) / float(bi_corpus[c][bg] + 1.0))
+#         for ug in Cunigrams:            
+#             for c in range (0, 5):
+#                 perplexity[c] += math.log(float(size_corpus[c] + voc_corpus[c]) / float(uni_corpus[c][ug] + 1.0))       
+        return perplexity.index(min(perplexity)) + 1

@@ -13,9 +13,6 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
-# TODO
-# 
-
 import enchant
 
 # Downloaded from https://bitbucket.org/spirit/guess_language
@@ -25,7 +22,9 @@ from guess_language import guess_language
 
 from TT_prep import *
 from TT_baseline import *
+from TT_debate import *
 from TT_politeness import *
+from TT_scorer import *
 from TT_TWgatherer import *
 
 def printhelp():
@@ -64,10 +63,20 @@ if not '--no-tweet' in sys.argv:
 		sys.stdout.write("You can find the data retrieved in the file %s.txt" % keyword)
 		sys.exit()
 
+# Mount the disagreement lexicon
+sys.stdout.write("Gathering and formatting Disagreement lexicon... ")
+fill_vs_lexicon()
+sys.stdout.write("done!\n")
+
 # Mount the politeness corpus
 sys.stdout.write("Gathering and formatting Stanford politeness corpus... ")
 fill_politeness_corpus()
 sys.stdout.write("done!\n")
+
+# Mount the debate corpus
+# sys.stdout.write("Gathering and formatting Debate corpus... ")
+# fill_debate_corpus()
+# sys.stdout.write("done!\n")
 
 # Open the csv files and add every line to the archive list
 # for filename in glob.glob(os.path.join('twitter_archives/csv_processes/', 'process_*.csv')):
@@ -97,15 +106,20 @@ with open("output", 'w') as f:
 	
 	for idx, tweet in enumerate(archive_list):
 		
+		# Count uppercases, smiley, exclamation marks and question marks
+# 		tweet['uppercases'] = n_upper_chars(tweet['text'])
+# 		tweet['marks'] = n_marks_chars(tweet['text'])
+		tweet['good'] = n_good_smile(tweet['text'])
+		tweet['bad'] = n_bad_smile(tweet['text'])
+		
 		# Retrieve the original utf-8 codification on the text and eliminate hashtags and cite
 		# Inside the function calls the slang translation before eliminating marks
 		utftext = put_readable(tweet['text'].decode('utf-8'), slg)
 		
-		# Count uppercases, smiley, exclamation marks and question marks
 		tweet['uppercases'] = n_upper_chars(utftext)
 		tweet['marks'] = n_marks_chars(utftext)
-		tweet['good'] = n_good_smile(utftext)
-		tweet['bad'] = n_bad_smile(utftext)
+# 		tweet['good'] = n_good_smile(utftext)
+# 		tweet['bad'] = n_bad_smile(utftext)
 		
 		# Remove useless punctuation and put everything in lower case
 		utftext = lower_punct(utftext)
@@ -125,6 +139,8 @@ with open("output", 'w') as f:
 			# Process vulgarity
 			tweet['vulgarity'] = process_vulgarity(tweet['text_processed_unigrams'], pwl)
 			tweet['unpoliteness'] = process_politeness(tweet['text_processed_unigrams'], tweet['text_processed_bigrams'])
+			tweet['disagreement'] = process_vs(utftext)
+			#tweet['disagreement'] = process_disagreement(tweet['text_processed_unigrams'], tweet['text_processed_bigrams'], tweet['topic'])
 			
 			actual.insert(0, tweet)
 			if tweet['rep'] == 0:
@@ -134,11 +150,12 @@ with open("output", 'w') as f:
 				
 				# TODO decide if it's a flame or not
 				checker = compute_baseline_score(passed)
+				advanced_checker = compute_score(passed)
 				
 				f.write("Conversation:\n")
 				for tw in passed:
-					f.write(tw['text'].encode('utf-8')+"\n	"+"vulgarity: "+str(tw['vulgarity'])+"; unpoliteness: "+str(tw['unpoliteness'])+"\n		  score="+str(checker)+"\n")
-				f.write("\n")
+					f.write(tw['text'].encode('utf-8')+"\n	"+"vulgarity: "+str(tw['vulgarity'])+"; unpoliteness: "+str(tw['unpoliteness'])+"; marks: "+str(tw['marks'])+"; uppercases: "+str(tw['uppercases'])+"; smileys: "+str(tw['good'])+"; disagreement: "+str(tw['disagreement'])+"\n")
+				f.write("		  baseline score="+str(checker)+"\n		  TT score="+str(advanced_checker)+"\n\n")
 # 			f.write("Tweet #" + str(idx+1) + " english; vulgarity: "+str(tweet['vulgarity'])+"; unpoliteness: "+str(tweet['unpoliteness'])+"\n")
 # 			f.write(tweet['text'].encode('utf-8')+'\n')
 # 			f.write(utftext.encode('utf-8')+'\n') 

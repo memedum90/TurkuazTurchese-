@@ -36,7 +36,7 @@ def init():
 
 # function to take tweet object and turn it into a dict and return the resulting dict.
 # rep is whether it was replied to someone or not. 1 means it was a reply, 0 means it wasn't
-def obj2dict(tweet,rep):
+def obj2dict(tweet,rep,keyword):
     dictt={}
     dictt['rep']=rep
     dictt['id']=tweet.id
@@ -46,6 +46,7 @@ def obj2dict(tweet,rep):
     dictt['username']=tweet.user.screen_name
     dictt['user_id']= tweet.user.id_str
     dictt['reply_to']=tweet.in_reply_to_status_id
+    dictt['topic']=keyword
     
     return dictt
 
@@ -119,23 +120,45 @@ def gatherer(keyword):
         if not tweet.in_reply_to_status_id ==None:
             to_reply_id=tweet.in_reply_to_status_id
             reply=1
-            tweet_dict=obj2dict(tweet,reply)
+            tweet_dict=obj2dict(tweet,reply,keyword)
             tweets_dict.append(tweet_dict)
             
+            repcount = 0
             while reply==1:
-             #   try: 
-                reply_tweet=api.get_status(to_reply_id)
-          #         break
-             #   except RuntimeError:
-           #         print 'not authorized to see the replied tweet'
-                if not reply_tweet.in_reply_to_status_id ==None:
-                    to_reply_id=reply_tweet.in_reply_to_status_id
-                    tweet_dict=obj2dict(reply_tweet,reply)
-                    tweets_dict.append(tweet_dict)
-                else:
+                repcount+=1  #updated from here till ... 
+                try: 
+                    reply_tweet=api.get_status(to_reply_id)
+                    if not reply_tweet.in_reply_to_status_id == None:
+                        to_reply_id=reply_tweet.in_reply_to_status_id
+                        tweet_dict=obj2dict(reply_tweet,reply,keyword)
+                        tweets_dict.append(tweet_dict)
+                    else:
+                        reply=0
+                        tweet_dict=obj2dict(reply_tweet,reply,keyword)
+                        tweets_dict.append(tweet_dict)
+                   
+                except:
+                    print 'not authorized to see a replied tweet'
                     reply=0
-                    tweet_dict=obj2dict(reply_tweet,reply)
-                    tweets_dict.append(tweet_dict)
+                    if repcount==1:
+                        tweets_dict.pop()
+                    elif repcount>1:
+                        last_tweet=tweets_dict.pop()
+                        last_tweet['rep']=0
+                        tweets_dict.append(last_tweet)
+#              #   try: 
+#                 reply_tweet=api.get_status(to_reply_id)
+#           #         break
+#              #   except RuntimeError:
+#            #         print 'not authorized to see the replied tweet'
+#                 if not reply_tweet.in_reply_to_status_id ==None:
+#                     to_reply_id=reply_tweet.in_reply_to_status_id
+#                     tweet_dict=obj2dict(reply_tweet,reply,keyword)
+#                     tweets_dict.append(tweet_dict)
+#                 else:
+#                     reply=0
+#                     tweet_dict=obj2dict(reply_tweet,reply,keyword)
+#                     tweets_dict.append(tweet_dict)
     # Write the tweets gathered into the relevant file, namely keyword.txt file
     write2file(tweets_dict, keyword)
     # Write to console  the list of tweets

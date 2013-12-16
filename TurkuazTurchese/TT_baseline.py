@@ -12,23 +12,34 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
+import math
 import re
+
+# WEIGHTS
+Wupp = 0.1 # Weight assigned to one uppercase
+Wmrk = 1.5 # Weigth assigned to one question or exclamation mark
+Wgud = -8 # Weigth assigned to one good smiley
+Wbad = -0.5 # Weight assigned to one bad smiley
+Wvlg = 4 # Weight assigned to one bad or risky word
+Wump = 5 # Weight assigned to one politeness point
+
+
 
 # Function to count upper case letters in a string
 def n_upper_chars(string):
     return sum(1 for c in string if c.isupper())
 
-# Function to count question and exclamation marks in a string
+# Function to count question and exclamation/question marks in a string
 def n_marks_chars(string):
     return sum(1 for c in string if c in ('?','!'))
 
 #Function to count good smileys in a string FIXME
 def n_good_smile(string):
-    return len(re.findall('(:|=|;|B)?-(\)+|D+|\*+|[pP]+)', string))
+    return len(re.findall(r'([:=;B]-?(\)+|D+|\*+|[pP]+))|(\b[lL]+[oO]+[lL]+\b)|[😍♥😘😜😭😂]', string))
 
-#Function to count bad smileys in a string FIXME
+#Function to count bad smileys in a string
 def n_bad_smile(string):
-    return len(re.findall('(:|=)?-(\(+|\/)', string))
+    return len(re.findall('(:|=)-?(\(+|\/)', string))
 
 # Function to count the occurrences of vulgar words
 def process_vulgarity(list_of_words, Dic):
@@ -53,4 +64,4 @@ def compute_baseline_score(conver):
         Tbad += tw['bad']
         Tvlg += tw['vulgarity']
         Tump += tw['unpoliteness']
-    return float(0.2*Tupp + 1.6*Tmrk - (idx*0.2)*8.0*Tgud + 0.4*Tbad + 3.0*Tvlg + 6.0*Tump) / float(2*len(conver))
+    return float(Wupp*Tupp + Wmrk*Tmrk + Wgud*Tgud + Wbad*Tbad + Wvlg*Tvlg + Wump*Tump) / (len(conver))
