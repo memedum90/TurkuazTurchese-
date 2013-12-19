@@ -44,7 +44,7 @@ def fill_debate_corpus():
 
 # This function creates a lexicon of agreement, disagreement and opinion expressions
 def fill_vs_lexicon():
-    with open('dicts/pro_against_elab', 'r') as vs:
+    with open('dicts/final_vs', 'r') as vs:
         txt = vs.read().split("////")
         for ind, cat in enumerate(txt):
             lexicon_vs.append(cat.split("\n"))

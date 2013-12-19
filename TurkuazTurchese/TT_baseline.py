@@ -41,12 +41,24 @@ def n_good_smile(string):
 def n_bad_smile(string):
     return len(re.findall('(:|=)-?(\(+|\/)', string))
 
-# Function to count the occurrences of vulgar words
+# Function to count the occurrences of vulgar words or insults (vulgar word + 2nd person in a little distance)
 def process_vulgarity(list_of_words, Dic):
     total = 0
     for word in list_of_words:
         if Dic.check(word):
             total += 1
+    return total
+
+def process_insults(list_of_words, Dic):
+    pronouns = ["you","your","you're","you'll","you've"]
+    intr = [list_of_words.index(val) for val in pronouns if val in list_of_words]
+    total = 0.3 * len(intr)
+    for idx, word in enumerate(list_of_words):
+        if Dic.check(word):
+            total += 0.3
+            for i in intr:
+                if abs(idx-i) < 3: 
+                    total += 5
     return total
 
 # Baseline function to compute the overall score of a conversation

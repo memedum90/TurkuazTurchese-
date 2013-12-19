@@ -17,8 +17,8 @@ import re
 
 # WEIGHTS
 SWupp = 0.1 # Weight assigned to one uppercase
-SWmrk = 1.5 # Weigth assigned to one question or exclamation mark
-SWgud = -8 # Weigth assigned to one good smiley
+SWmrk = 2.0 # Weigth assigned to one question or exclamation mark
+SWgud = -10 # Weigth assigned to one good smiley
 SWbad = -0.5 # Weight assigned to one bad smiley
 SWvlg = 4 # Weight assigned to one bad or risky word
 SWump = 5 # Weight assigned to one politeness point
@@ -41,4 +41,5 @@ def compute_score(conver):
         STvlg += tw['vulgarity']
         STump += tw['unpoliteness']
         STdis += tw['disagreement']
-    return float(SWupp*STupp + SWmrk*STmrk + SWgud*STgud + SWbad*STbad + SWvlg*STvlg + SWdis*STdis) / (len(conver))
+#     return float(SWupp*STupp + SWmrk*STmrk + SWgud*STgud + SWbad*STbad + SWvlg*STvlg) / (len(conver))
+    return float(SWupp*STupp + SWmrk*STmrk + SWgud*STgud + SWvlg*STvlg) / (len(conver))  + SWbad*STbad 

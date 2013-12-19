@@ -25,6 +25,7 @@ from TT_baseline import *
 from TT_debate import *
 from TT_politeness import *
 from TT_scorer import *
+from TT_SSWinitializer import *
 from TT_TWgatherer import *
 
 def printhelp():
@@ -32,12 +33,13 @@ def printhelp():
 			
 # Global list of tweets: every element is a dictionary
 archive_list = []
+flames = []
+noflames = []
 
 # Add as dictionary the English language plus the bad words
 pwl = enchant.request_pwl_dict('dicts/bad-words.txt')
 Dict = enchant.DictWithPWL('en_US', 'dicts/bad-words.txt')
 slg = mount_slang_dict()
-
 
 print "\n------------------------------------------------------------------------------------"
 print "| WELCOME TO TURKUAZURCHESE, A TOOL TO FIND FLAMES AMONG CONVERSATIONS IN TWITTER! |"
@@ -99,9 +101,7 @@ with open("output", 'w') as f:
 	f.truncate()
 	
 	sys.stdout.write("Processing tweets one by one (output information in the output file)...\n\n")
-	
-	
-	conversations = []
+
 	actual = []
 	
 	for idx, tweet in enumerate(archive_list):
@@ -137,7 +137,8 @@ with open("output", 'w') as f:
 			utftext = " ".join(word for word in spell_correct(tweet['text_processed_unigrams'], Dict))
 
 			# Process vulgarity
-			tweet['vulgarity'] = process_vulgarity(tweet['text_processed_unigrams'], pwl)
+			#tweet['vulgarity'] = process_vulgarity(tweet['text_processed_unigrams'], pwl)
+			tweet['vulgarity'] = process_insults(tweet['text_processed_unigrams'], pwl)
 			tweet['unpoliteness'] = process_politeness(tweet['text_processed_unigrams'], tweet['text_processed_bigrams'])
 			tweet['disagreement'] = process_vs(utftext)
 			#tweet['disagreement'] = process_disagreement(tweet['text_processed_unigrams'], tweet['text_processed_bigrams'], tweet['topic'])
@@ -145,20 +146,38 @@ with open("output", 'w') as f:
 			actual.insert(0, tweet)
 			if tweet['rep'] == 0:
 				passed = actual
-				conversations.append(passed)
-				actual = []
 				
-				# TODO decide if it's a flame or not
+				# decide if it's a flame or not and append user information to the SSW list
 				checker = compute_baseline_score(passed)
 				advanced_checker = compute_score(passed)
 				
-				f.write("Conversation:\n")
+				with open("users", 'a+') as g:
+					g.write("////\n")
+					if advanced_checker > 5:
+						g.write("F")
+						flames.append(passed)
+						for x in passed:
+							g.write(x['user_id']+"-")
+					else:
+						g.write("N")
+						noflames.append(passed)
+				actual = []
+
+				f.write("<conversation baseline="+str(checker)+" TT="+str(advanced_checker)+">\n")
 				for tw in passed:
-					f.write(tw['text'].encode('utf-8')+"\n	"+"vulgarity: "+str(tw['vulgarity'])+"; unpoliteness: "+str(tw['unpoliteness'])+"; marks: "+str(tw['marks'])+"; uppercases: "+str(tw['uppercases'])+"; smileys: "+str(tw['good'])+"; disagreement: "+str(tw['disagreement'])+"\n")
-				f.write("		  baseline score="+str(checker)+"\n		  TT score="+str(advanced_checker)+"\n\n")
+					f.write(tw['username']+" ==> "+tw['text'].encode('utf-8')+"\n	"+"		<vulgarity: "+str(tw['vulgarity'])+"; unpoliteness: "+str(tw['unpoliteness'])+"; marks: "+str(tw['marks'])+"; uppercases: "+str(tw['uppercases'])+"; smileys: "+str(tw['good'])+"; disagreement: "+str(tw['disagreement'])+">\n")
+				f.write("<\conversation>\n\n")
 # 			f.write("Tweet #" + str(idx+1) + " english; vulgarity: "+str(tweet['vulgarity'])+"; unpoliteness: "+str(tweet['unpoliteness'])+"\n")
 # 			f.write(tweet['text'].encode('utf-8')+'\n')
 # 			f.write(utftext.encode('utf-8')+'\n') 
-			
-		print "Tweet "+str(idx+1)+" checked!"
-	sys.stdout.write("done!\n")	
+				
+			print "Tweet "+str(idx+1)+" checked!"
+	sys.stdout.write("done!\n")
+	
+	sys.stdout.write("Now moving to the SNA...\n")
+	
+	for flame in flames:
+		append_flamer(flame, 0)
+	for flame in noflames:
+		append_flamer(flame, 1)
+SSW_init()

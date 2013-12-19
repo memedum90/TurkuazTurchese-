@@ -164,3 +164,80 @@ def gatherer(keyword):
     # Write to console  the list of tweets
     for tweet in tweets_dict:
         print tweet
+        
+### USER INFORMATIONS ###
+
+#input userid as a string or as an int. 
+#output user dict consisting of user attributes
+def getUserInfo(userid):
+    
+    user={}
+    user['id']=userid
+    
+    us=api.get_user(userid)
+    #screen_name string The screen name, handle, or alias that this user identifies themselves with. screen_names are unique but subject to change. 
+    #Use id_str as a user identifier whenever possible. Typically a maximum of 15 characters long, but some historical accounts may exist with longer names.
+    user['screen_name']=us.screen_name
+    
+    
+    #name: string  The name of the user, as they've defined it. Not necessarily a person's name. Typically capped at 20 characters, but subject to change.
+    user['name']=us.name
+    
+    #listed_count: int. The number of public lists that this user is a member of.
+    user['listed_count']=us.listed_count
+    
+    #location: string Nullable. The user-defined location for this account's profile. 
+    #Not necessarily a location nor parseable. This field will occasionally be fuzzily interpreted by the Search service.
+    user['location']=us.location
+    
+    #lang: string The BCP 47 code for the user's self-declared user interface language. May or may not have anything to do with the content of their Tweets.
+    user['lang']=us.lang
+        
+    #followers_count: int The number of followers this account currently has. Under certain conditions of duress, this field will temporarily indicate "0."
+    user['followers_count']=us.followers_count
+    
+    #friends_count: int The number of users this account is following (AKA their "followings"). Under certain conditions of duress, this field will temporarily indicate "0."
+    user['friends_count']=us.friends_count
+    
+    #favourites_count int The number of tweets this user has favorited in the account's lifetime. British spelling used in the field name for historical reasons.
+    user['favourites_count']=us.favourites_count
+    
+    #statuses_count int  The number of tweets (including retweets) issued by the user.
+    user['statuses_count']= us.statuses_count
+    
+       
+    
+    
+    return user
+ #input a user id
+ #output a list consisting of follower ids   
+def getUserFollowers(userid):
+    followerlist=[]
+    
+    follower_cursors = tweepy.Cursor(api.followers_ids, userid)
+    
+    for followerid in follower_cursors.items():
+        
+        followerlist.append(followerid)    
+    return followerlist
+
+ #input a user id
+ #output a list consisting of friend ids   
+ #  (a person1 who is being followed by a person2 is a friend of that person2)
+def getUserFriends(userid):
+    friendslist=[]
+    
+    friends_cursors = tweepy.Cursor(api.friends_ids, userid)
+    
+    for friendid in friends_cursors.items():
+        
+        friendslist.append(friendid)    
+    return friendslist
+
+def getUserAll(id):
+    friendlist=getUserFriends(id)
+    followerlist=getUserFollowers(id)
+    user=getUserInfo(id)
+    user['friends']=friendlist
+    user['followers']=followerlist
+    return user
