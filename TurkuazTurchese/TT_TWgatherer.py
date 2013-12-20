@@ -34,6 +34,16 @@ def init():
     api = tweepy.API(auth)
     return api
 
+def init_2():
+    consumer_key="NY9AK7xur7y4vMs3nE54KA"
+    consumer_secret="0obr9aNiGe27AjDzkatEeul4nDFUxKMSVcNtjZzf4"
+    access_token="1914766603-p6PnLYcWgMprjq8V2t1Fh1s93FAgWRPyGpTylEH"
+    access_token_secret="Zal2KPlizVaoQUzB1Bqx0t3uCmM1OXCl5J2o2at9MW0Aj"
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
+    api = tweepy.API(auth)
+    return api
+
 # function to take tweet object and turn it into a dict and return the resulting dict.
 # rep is whether it was replied to someone or not. 1 means it was a reply, 0 means it wasn't
 def obj2dict(tweet,rep,keyword):
@@ -116,7 +126,7 @@ def isInDict(checkedTweet, tlist):
 
    
 # GLOBAL VARIABLES
-api = init()
+api = init_2()
 
 # Search keyword
 #keyword = 'terrorist'
