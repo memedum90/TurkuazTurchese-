@@ -82,8 +82,18 @@ def SSW_init():
     with open("almost_final", 'r') as f:
         rawtxt = eval(f.read())
     
+    print rawtxt
     
-        
+    with open("sciocco", 'w') as f:        
+        for tuple in rawtxt:
+            for user in tuple.keys():
+                weight = tuple[user]
+                sioc_user = "<sioc:UserAccount rdf:about=\"https://www.twitter.com/" + user[0] + "\" rdfs:label=\"Cloud\">"
+                for user2 in tuple.keys():
+                    if not user2 == user:
+                        sioc_user += "<tt:hasFlamed><sioc:UserAccount rdf:about=\"https://www.twitter.com/" + user2[0] + "\" rdfs:label=\"Cloud\"></sioc:UserAccount></tt:hasFlamed>"
+                sioc_user += "</sioc:UserAccount>"
+                f.write(sioc_user)   
     return 0
 
 
