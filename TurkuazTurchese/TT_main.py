@@ -33,8 +33,12 @@ def printhelp():
 			
 # Global list of tweets: every element is a dictionary
 archive_list = []
+
+#List of conversations and user in conversations flames or not
 flames = []
 noflames = []
+flamesU = []
+noflamesU = []
 
 # Add as dictionary the English language plus the bad words
 pwl = enchant.request_pwl_dict('dicts/bad-words.txt')
@@ -96,13 +100,16 @@ else:
 sys.stdout.write("done!\n")
 
 # Clear output file content
-with open("output", 'w') as f:
+with open("output", 'w') as f: 
 	f.seek(0)
 	f.truncate()
-	
+			
 	sys.stdout.write("Processing tweets one by one (output information in the output file)...\n\n")
-
+	
+	#Arrays where we gather respectively tweets and users in a same conversation.
+	#we empty the arrays when the conversation is over and we pass the value to "passed"
 	actual = []
+	actualU = []
 	
 	for idx, tweet in enumerate(archive_list):
 		
@@ -144,24 +151,33 @@ with open("output", 'w') as f:
 			#tweet['disagreement'] = process_disagreement(tweet['text_processed_unigrams'], tweet['text_processed_bigrams'], tweet['topic'])
 			
 			actual.insert(0, tweet)
+			actualU.insert(0, getTWUser(tweet))
 			if tweet['rep'] == 0:
 				passed = actual
+				passedU = Counter(actualU)
+				actual = []
+				actualU = []
 				
 				# decide if it's a flame or not and append user information to the SSW list
 				checker = compute_baseline_score(passed)
 				advanced_checker = compute_score(passed)
 				
-				with open("users", 'a+') as g:
-					g.write("////\n")
-					if advanced_checker > 5:
-						g.write("F")
-						flames.append(passed)
-						for x in passed:
-							g.write(x['user_id']+"-")
-					else:
-						g.write("N")
-						noflames.append(passed)
-				actual = []
+				# Add the user ids of the flame to a file "users" in single copy
+# 					g.write("////")
+				if advanced_checker > 5:
+# 						g.write("F")
+					flames.append(passed)
+					for x in passedU:
+						passedU[x] *= -1
+# 						for x in passed:
+# 							g.write("-"+x['user_id']) #XXX
+				else:
+#						g.write("N")
+					noflames.append(passed)
+# 						for x in passed:
+# 							g.write("-"+x['user_id'])
+				flamesU.append(passedU)
+
 
 				f.write("<conversation baseline="+str(checker)+" TT="+str(advanced_checker)+">\n")
 				for tw in passed:
@@ -174,10 +190,8 @@ with open("output", 'w') as f:
 			print "Tweet "+str(idx+1)+" checked!"
 	sys.stdout.write("done!\n")
 	
-	sys.stdout.write("Now moving to the SNA...\n")
-	
-	for flame in flames:
-		append_flamer(flame, 0)
-	for flame in noflames:
-		append_flamer(flame, 1)
-SSW_init()
+	with open("almost_final", 'w') as g:
+		g.write(str(flamesU))
+		
+sys.stdout.write("Now moving to the SNA...\n")
+# SSW_init()

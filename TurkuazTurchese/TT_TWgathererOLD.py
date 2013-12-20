@@ -1,5 +1,5 @@
 '''
-This code is written by Mehmet Durna  
+This code is written by Mehmet Durna (finally! :P)
 Anyways, so Fede, what you'll find here is working. If you run the code, it will put tweets with keyword 
 (defined in line 80)  into a file named keyword.txt. The function to read from these files are also available 
 in the code(commented out). Everything works if twitter allows. Sometimes we are not allowed to retrieve the tweets by to_reply ID
@@ -14,6 +14,8 @@ import glob
 import tweepy
 import os
 import json
+import sys
+import time
 
 from random import randint
 
@@ -47,12 +49,14 @@ def obj2dict(tweet,rep,keyword):
     dictt['user_id']= tweet.user.id_str
     dictt['reply_to']=tweet.in_reply_to_status_id
     dictt['topic']=keyword
+    
     dictt['lang']=tweet.user.lang
     dictt['flw_cnt']=tweet.user.followers_count
     dictt['flg_cnt']=tweet.user.friends_count
     dictt['lst_cnt']=tweet.user.listed_count
     dictt['us_fvt_cnt']=tweet.user.favourites_count
     dictt['stat_cnt']=tweet.user.statuses_count
+    
     return dictt
 
 # This function simply writes the dicts into files given the tweet list and the keyword to name the file
@@ -102,130 +106,86 @@ def readfromall():
         # Return tweet_list
         f.close()
     return tweetlist
- 
-def isInDict(checkedTweet, tlist):
-    if not tlist==0:
-        for tweet_obj in tlist:
-            #print 'tweet_obj id:\t%s' % tweet_obj['id']
-            #print 'smp id:\t\t%s'% checkedTweet.id
-            if tweet_obj['id']==checkedTweet.id:
-                return True
-        return False
-    else:
-        return False    
 
-   
+def getTWUser(tweet):
+#     l = {}
+#     l['username'] = tweet['username']
+#     l['user_id'] = tweet['user_id']
+#     l['lang'] = tweet['lang']
+#     l['flw_cnt'] = tweet['flw_cnt']
+#     l['flg_cnt'] = tweet['flg_cnt']
+#     l['lst_cnt'] = tweet['lst_cnt']
+#     l['us_fvt_cnt'] = tweet['us_fvt_cnt']
+#     l['stat_cnt'] = tweet['stat_cnt']
+    # return l
+    return (tweet['username'],tweet['user_id'],tweet['lang'],tweet['flw_cnt'],tweet['flg_cnt'],tweet['lst_cnt'],tweet['us_fvt_cnt'],tweet['stat_cnt'])
+        
 # GLOBAL VARIABLES
 api = init()
 
 # Search keyword
 #keyword = 'terrorist'
 
-#list to store all the tweets gathered
-tweet_list=[]
+# This is how a file can be read into a list of tweets as dicts
+# tweetlist = readfromfile(keyword)
 
-
+# List to store all the tweets gathered
+tweets_dict=[]
 
 def gatherer(keyword):
-    tlistfromfile=readfromfile(keyword)
-    print "hahahah"
+    
     # This line does the search, more parameters can be specified, count is the number of tweets gathered. max is 100
     tweets=api.search(q=keyword, count=100, lang='en')
     
     # The part to get tweets with their replied tweets and put them into the list making them dicts (from tweet objects)
-    for tweet_obj in tweets:
-    
-        if not tweet_obj.in_reply_to_status_id ==None:
-            to_reply_id=tweet_obj.in_reply_to_status_id
+    for tweet in tweets:
+        if not tweet.in_reply_to_status_id ==None:
+            to_reply_id=tweet.in_reply_to_status_id
             reply=1
-            #print 'text:' ,tweet_obj.text
+            tweet_dict=obj2dict(tweet,reply,keyword)
+            tweets_dict.append(tweet_dict)
             
-            if not isInDict(tweet_obj, tlistfromfile):
-                
-                #tweet is dictionary of the object
-                tweet=obj2dict(tweet_obj,reply, keyword)
-                tweet_list.append(tweet)
-            else:
-                reply=0
-            
-            repcount=0 #this line is updated
+            repcount = 0
             while reply==1:
                 repcount+=1  #updated from here till ... 
                 try: 
                     reply_tweet=api.get_status(to_reply_id)
-                    if not reply_tweet.in_reply_to_status_id ==None:
+                    if not reply_tweet.in_reply_to_status_id == None:
                         to_reply_id=reply_tweet.in_reply_to_status_id
-                        tweet=obj2dict(reply_tweet,reply,keyword)
-                        tweet_list.append(tweet)
+                        tweet_dict=obj2dict(reply_tweet,reply,keyword)
+                        tweets_dict.append(tweet_dict)
                     else:
                         reply=0
-                        tweet=obj2dict(reply_tweet,reply,keyword)
-                        tweet_list.append(tweet)
+                        tweet_dict=obj2dict(reply_tweet,reply,keyword)
+                        tweets_dict.append(tweet_dict)
                    
                 except:
-                    print 'not authorized to see the replied tweet'
+                    print 'not authorized to see a replied tweet'
                     reply=0
                     if repcount==1:
-                        tweet_list.pop()
+                        tweets_dict.pop()
                     elif repcount>1:
-                        last_tweet=tweet_list.pop()
+                        last_tweet=tweets_dict.pop()
                         last_tweet['rep']=0
-                        tweet_list.append(last_tweet)
-           # ...here. copy till here         
-    #write the tweets gathered into the relevant file, namely keyword.txt file
-    write2file(tweet_list, keyword)
-    #write to console  the list of tweets
-    for tweet in tweet_list:
-        print tweet
-#the part from previous edition        
-#     for tweet in tweets:
-#         if not tweet.in_reply_to_status_id ==None:
-#             to_reply_id=tweet.in_reply_to_status_id
-#             reply=1
-#             tweet_dict=obj2dict(tweet,reply,keyword)
-#             tweets_dict.append(tweet_dict)
-#             
-#             repcount = 0
-#             while reply==1:
-#                 repcount+=1  #updated from here till ... 
-#                 try: 
-#                     reply_tweet=api.get_status(to_reply_id)
-#                     if not reply_tweet.in_reply_to_status_id == None:
-#                         to_reply_id=reply_tweet.in_reply_to_status_id
-#                         tweet_dict=obj2dict(reply_tweet,reply,keyword)
-#                         tweets_dict.append(tweet_dict)
-#                     else:
-#                         reply=0
-#                         tweet_dict=obj2dict(reply_tweet,reply,keyword)
-#                         tweets_dict.append(tweet_dict)
-#                    
-#                 except:
-#                     print 'not authorized to see a replied tweet'
+                        tweets_dict.append(last_tweet)
+#              #   try: 
+#                 reply_tweet=api.get_status(to_reply_id)
+#           #         break
+#              #   except RuntimeError:
+#            #         print 'not authorized to see the replied tweet'
+#                 if not reply_tweet.in_reply_to_status_id ==None:
+#                     to_reply_id=reply_tweet.in_reply_to_status_id
+#                     tweet_dict=obj2dict(reply_tweet,reply,keyword)
+#                     tweets_dict.append(tweet_dict)
+#                 else:
 #                     reply=0
-#                     if repcount==1:
-#                         tweets_dict.pop()
-#                     elif repcount>1:
-#                         last_tweet=tweets_dict.pop()
-#                         last_tweet['rep']=0
-#                         tweets_dict.append(last_tweet)
-# #              #   try: 
-# #                 reply_tweet=api.get_status(to_reply_id)
-# #           #         break
-# #              #   except RuntimeError:
-# #            #         print 'not authorized to see the replied tweet'
-# #                 if not reply_tweet.in_reply_to_status_id ==None:
-# #                     to_reply_id=reply_tweet.in_reply_to_status_id
-# #                     tweet_dict=obj2dict(reply_tweet,reply,keyword)
-# #                     tweets_dict.append(tweet_dict)
-# #                 else:
-# #                     reply=0
-# #                     tweet_dict=obj2dict(reply_tweet,reply,keyword)
-# #                     tweets_dict.append(tweet_dict)
-#     # Write the tweets gathered into the relevant file, namely keyword.txt file
-#     write2file(tweets_dict, keyword)
-#     # Write to console  the list of tweets
-#     for tweet in tweets_dict:
-#         print tweet
+#                     tweet_dict=obj2dict(reply_tweet,reply,keyword)
+#                     tweets_dict.append(tweet_dict)
+    # Write the tweets gathered into the relevant file, namely keyword.txt file
+    write2file(tweets_dict, keyword)
+    # Write to console  the list of tweets
+    for tweet in tweets_dict:
+        print tweet
         
 ### USER INFORMATIONS ###
 
@@ -277,10 +237,19 @@ def getUserFollowers(userid):
     followerlist=[]
     
     follower_cursors = tweepy.Cursor(api.followers_ids, userid)
-    
+      
     for followerid in follower_cursors.items():
-        
-        followerlist.append(followerid)    
+            followerlist.append(followerid)
+
+#     follower_cursors = tweepy.Cursor(api.followers_ids, userid).items()
+#      
+#     for followerid in follower_cursors:
+#         try:
+#             followerlist.append(followerid)
+#             print followerid
+#         except tweepy.TweepError:
+#             time.sleep(60*15)
+#             followerlist.append(followerid) 
     return followerlist
 
  #input a user id
@@ -302,7 +271,5 @@ def getUserAll(id):
     user=getUserInfo(id)
     user['friends']=friendlist
     user['followers']=followerlist
+    sys.stdout.write("User "+user['name']+" imported.\n")
     return user
-
-def getTWUser(tweet):
-    return (tweet['username'],tweet['user_id'],tweet['lang'],tweet['flw_cnt'],tweet['flg_cnt'],tweet['lst_cnt'],tweet['us_fvt_cnt'],tweet['stat_cnt'])

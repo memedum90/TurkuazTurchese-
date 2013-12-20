@@ -1,0 +1,4 @@
+{'username': 'worldbwise', 'topic': 'morsi', 'user_id': '1523453130', 'fvt_cnt': 0, 'text': '@washingtonpost how things have changed. #mubarak free and #Morsi on trial.', 'rep': 1, 'rt_cnt': 0, 'reply_to': 413742191560110081, 'id': 413744993199587328}
+{'username': 'washingtonpost', 'topic': 'morsi', 'user_id': '2467791', 'fvt_cnt': 4, 'text': "Egyptian court acquits Mubarak's sons and a former prime minister of corruption charges http://t.co/qSHR8w8vCh", 'rep': 0, 'rt_cnt': 33, 'reply_to': None, 'id': 413742191560110081}
+{'username': 'Morsi_Jaber', 'topic': 'morsi', 'user_id': '422555204', 'fvt_cnt': 0, 'text': '@farhatrania1  too much  demands  for one  #tweet', 'rep': 1, 'rt_cnt': 0, 'reply_to': 413769977934905344, 'id': 413770294151487490}
+{'username': 'farhatrania1', 'topic': 'morsi', 'user_id': '2169499675', 'fvt_cnt': 2, 'text': 'Someone take me out to breakfast tomorrow!!! ..... you pay', 'rep': 0, 'rt_cnt': 0, 'reply_to': None, 'id': 413769977934905344}
