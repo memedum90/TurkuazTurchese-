@@ -1,0 +1,1455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:tto="http://www.fedemontori.eu/ns#"
+  xmlns:xs="http://www.w3.org/2000/10/XMLSchema#"
+  xmlns:ns1="http://www.fedemontori.eu/"
+  xmlns:sioc="http://rdfs.org/sioc/ns#"
+>
+  <owl:Ontology rdf:about="http://www.fedemontori.eu">
+    <owl:versionInfo> Revision: 1.2 </owl:versionInfo>
+    <dc:title xml:lang="en"> TurkuazTurkese core ontology </dc:title>
+    <dc:description xml:lang="en"> TurkuazTurcheseOnto is an extension of sioc used to represent concepts like flaming and non-flaming conversation (so weighted relationships) </dc:description>
+  </owl:Ontology>
+  <owl:ObjectProperty rdf:about="http://www.fedemontori.eu/ns#hasCorrespondant">
+    <xs:range rdf:resource="http://www.fedemontori.eu/ns#UserAccount"/>
+    <xs:comment xml:lang="en"> link a conversation with its correspondants </xs:comment>
+    <xs:label xml:lang="en"> has Correspondant user </xs:label>
+  </owl:ObjectProperty>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/SlimJimJaye">
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/x_SammieSam_x">
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#3d6aa593-46d8-40de-aa2b-7a5a4f477162"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/SlimJimJaye"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/ShanellSharper"/>
+        <rdfs:label>Cloud</rdfs:label>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#b5d98153-c2d8-4572-b43c-ba11c577d1df">
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/x_SammieSam_x"/>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/ShanellSharper"/>
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+        <ns1:flame>noflame</ns1:flame>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/SlimJimJaye"/>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/ShanellSharper">
+        <foaf:knows rdf:resource="https://www.twitter.com/x_SammieSam_x"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/OriginalTre_"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/SlimJimJaye"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/BxtchimColbss"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#98cb087b-9bd9-4480-92d3-0ff4c53b9ccb"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#cf38f023-3a24-4f56-a203-a27063d9bf9b"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#7897acb5-37c2-4c3b-aa1b-df99777a842b">
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/SlimJimJaye"/>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/ShanellSharper"/>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/x_SammieSam_x"/>
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+        <ns1:flame>noflame</ns1:flame>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <foaf:knows rdf:resource="https://www.twitter.com/SlimJimJaye"/>
+    <rdfs:label>Cloud</rdfs:label>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/Attwittsend">
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#121d5787-8468-47fa-8b7a-6dee15a99648">
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/Attwittsend"/>
+        <ns1:flame>noflame</ns1:flame>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/KaleiLuvsHawaii"/>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <rdfs:label>Cloud</rdfs:label>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/KaleiLuvsHawaii">
+        <rdfs:label>Cloud</rdfs:label>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#e6fe7615-51d3-4128-af09-6e44d0c762d5"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/Attwittsend"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#d0f072f4-4c38-473b-8b71-a66ae5cfac28">
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/Attwittsend"/>
+        <ns1:flame>noflame</ns1:flame>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/KaleiLuvsHawaii"/>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <foaf:knows rdf:resource="https://www.twitter.com/Attwittsend"/>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/CharMSkates">
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#26fcee1d-212a-409e-b6e5-58445e97108f">
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+        <ns1:flame>noflame</ns1:flame>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/blyan"/>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/CharMSkates"/>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/PigeonFudge"/>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#b4f8c633-2ac5-495d-beb4-62e0bb9816b7">
+        <ns1:flame>noflame</ns1:flame>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/PigeonFudge"/>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/CharMSkates"/>
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</tto:value>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/blyan"/>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/PigeonFudge">
+        <rdfs:label>Cloud</rdfs:label>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#0905a73a-bf5d-49f0-a85a-aa2822ffb26f"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/CharMSkates"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/blyan"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <foaf:knows rdf:resource="https://www.twitter.com/CharMSkates"/>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/blyan">
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#ebbd65d0-e144-4cb6-87d3-e55ab0a14765"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/CharMSkates"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/PigeonFudge"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/blyan"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#30ea18ab-8152-4c0d-86d6-3ade38e16c30"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#f403d8e2-f441-446e-ba72-d3438c1072dd">
+        <ns1:flame>noflame</ns1:flame>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/blyan"/>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/PigeonFudge"/>
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</tto:value>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/CharMSkates"/>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <rdfs:label>Cloud</rdfs:label>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/bjohnnyb12">
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/nogirlemen">
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#62fcdc48-149e-40e3-bdcf-1f119de38911"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/bjohnnyb12"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <rdfs:label>Cloud</rdfs:label>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#fe4d65aa-1501-4f7f-9df3-02a2f5684504">
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/bjohnnyb12"/>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/nogirlemen"/>
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+        <ns1:flame>noflame</ns1:flame>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#cea15d47-ed7e-4d94-a558-d7d0ba11d059">
+        <ns1:flame>noflame</ns1:flame>
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">7</tto:value>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/nogirlemen"/>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/bjohnnyb12"/>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <foaf:knows rdf:resource="https://www.twitter.com/bjohnnyb12"/>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/OriginalTre_">
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#4149d808-3663-4002-a0b1-a01ca58ce274">
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/CiciArlene"/>
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+        <ns1:flame>noflame</ns1:flame>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/BxtchimColbss"/>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/missmikhaila"/>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/OriginalTre_"/>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <foaf:knows rdf:resource="https://www.twitter.com/OriginalTre_"/>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/missmikhaila">
+        <foaf:knows rdf:resource="https://www.twitter.com/BxtchimColbss"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/CiciArlene"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#8b50a6c4-974e-40ca-8795-ff82dda265be"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/OriginalTre_"/>
+        <rdfs:label>Cloud</rdfs:label>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <rdfs:label>Cloud</rdfs:label>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#0c2d007f-ac0e-4766-8665-0c4471b94f22">
+        <ns1:flame>noflame</ns1:flame>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/CiciArlene"/>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/OriginalTre_"/>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/BxtchimColbss"/>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/missmikhaila"/>
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/CiciArlene">
+        <foaf:knows rdf:resource="https://www.twitter.com/missmikhaila"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/BxtchimColbss"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/OriginalTre_"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#a2243996-6c7c-4553-b9de-41cb5a11faa7"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#85516f86-cb68-44c7-8eba-25b25a172d5a">
+        <ns1:flame>noflame</ns1:flame>
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/BxtchimColbss"/>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/ShanellSharper"/>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <foaf:knows rdf:resource="https://www.twitter.com/ShanellSharper"/>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/BxtchimColbss">
+        <foaf:knows rdf:resource="https://www.twitter.com/ShanellSharper"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#d261faec-49fd-4034-a9f7-06383c2a8a8a"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/CiciArlene"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#1d4d5ffe-0483-43d5-af68-f071d97610fc"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/missmikhaila"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#435eb9b4-dd13-4e5c-a460-ddce43fa60b8"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/OriginalTre_"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/BxtchimColbss"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <owl:ObjectProperty rdf:about="http://www.fedemontori.eu/ns#hasConversation">
+    <xs:label xml:lang="en"> has Conversation </xs:label>
+    <xs:range rdf:resource="http://www.fedemontori.eu/ns#Conversation"/>
+    <xs:comment xml:lang="en"> Links personally an user to a conversation, let's say from his point of view. </xs:comment>
+  </owl:ObjectProperty>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/SeanConreed">
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/nartem123">
+        <foaf:knows rdf:resource="https://www.twitter.com/SeanConreed"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/deanbcfc"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/CaringSoul786"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/ArkanKurd"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/TheRationaliser"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#d4748557-2cad-42b4-a237-07d97a9f2583"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <rdfs:label>Cloud</rdfs:label>
+    <foaf:knows rdf:resource="https://www.twitter.com/SeanConreed"/>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/deanbcfc">
+        <foaf:knows rdf:resource="https://www.twitter.com/SeanConreed"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/TheRationaliser"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/nartem123"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/ArkanKurd"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/CaringSoul786"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#9c046ae8-066f-4418-92c6-87c58e41d297"/>
+        <rdfs:label>Cloud</rdfs:label>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#6c9a134c-03ae-46d2-bcad-bb4f7a8962e4">
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/SeanConreed"/>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/nartem123"/>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/deanbcfc"/>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/TheRationaliser"/>
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+        <ns1:flame>noflame</ns1:flame>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/CaringSoul786"/>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/ArkanKurd"/>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/CaringSoul786">
+        <foaf:knows rdf:resource="https://www.twitter.com/ArkanKurd"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/deanbcfc"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/SeanConreed"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#4f2f3434-5312-404b-8a87-31cb796fd03f"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/nartem123"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/TheRationaliser"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/ArkanKurd">
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/CaringSoul786"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/TheRationaliser"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#4a4c607c-11dd-49d0-a8dc-fa29eac2008e"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/nartem123"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/SeanConreed"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/deanbcfc"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#617cad85-709e-466a-9494-1c610c8af797">
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/nartem123"/>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/TheRationaliser"/>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/deanbcfc"/>
+        <ns1:flame>noflame</ns1:flame>
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">7</tto:value>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/SeanConreed"/>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/ArkanKurd"/>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/CaringSoul786"/>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/TheRationaliser">
+        <foaf:knows rdf:resource="https://www.twitter.com/deanbcfc"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/CaringSoul786"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/ArkanKurd"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#fd9513f8-15f6-4186-963b-a7af1049ecf0"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/nartem123"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/SeanConreed"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/joshgreenman">
+    <rdfs:label>Cloud</rdfs:label>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/intelligencer">
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#d37fd153-4a84-4660-af6d-d488bf8472f8"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/joshgreenman"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#2803b039-fba8-4898-b4be-49bc7b2240d7">
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+        <ns1:flame>noflame</ns1:flame>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/intelligencer"/>
+      </tto:Relationship>
+    </tto:hasRelationship>
+  </sioc:UserAccount>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#370f5d6a-9dad-47ae-9329-d26aa49eb0bf">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/ThatLeftyTosser">
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#5c8203e3-9bb5-405b-affe-c1a61d31fda5"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/poorbastardmarv"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/markoah"/>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/poorbastardmarv">
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/ThatLeftyTosser"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/markoah"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#08830bf3-9af0-49d2-a0ee-9f3337eaa2f9"/>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#3905f787-9334-47fe-bae6-c0d10d4e7ef4">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/_homespun">
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#85f00ffb-551f-494a-8460-2f533b245939"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/goaldado"/>
+        <rdfs:label>Cloud</rdfs:label>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+  </tto:Relationship>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/LeahNTorres">
+    <rdfs:label>Cloud</rdfs:label>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/LiveActionFilms">
+        <foaf:knows rdf:resource="https://www.twitter.com/LeahNTorres"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#84ecf417-2f6e-4e70-9451-7da8f6e67907"/>
+        <rdfs:label>Cloud</rdfs:label>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#14d63fbc-1fd1-481e-b846-e5d88d5eae7d">
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+        <ns1:flame>noflame</ns1:flame>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/LiveActionFilms"/>
+      </tto:Relationship>
+    </tto:hasRelationship>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/BToub11">
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/deviantdeath_">
+        <foaf:knows rdf:resource="https://www.twitter.com/beataebe"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/BToub11"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#249c257e-de65-40eb-a558-f924acc8f207"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/3rdReichStudies"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/alexaabonnes"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#93eeb3c3-8b14-4892-8e1c-a7b31183a488">
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/deviantdeath_"/>
+        <ns1:flame>noflame</ns1:flame>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/3rdReichStudies"/>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/beataebe"/>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/alexaabonnes"/>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/3rdReichStudies">
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/alexaabonnes"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/beataebe"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/deviantdeath_"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/BToub11"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#57f33ee9-a956-4a08-a70c-8927cfbd664e"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/beataebe">
+        <rdfs:label>Cloud</rdfs:label>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#a8d0d20b-9ca9-454c-839d-c0f668708e4f"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/deviantdeath_"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/BToub11"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/alexaabonnes"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/3rdReichStudies"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <rdfs:label>Cloud</rdfs:label>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/alexaabonnes">
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#72087938-5951-4ebd-96a0-157140c761e1"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/deviantdeath_"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/beataebe"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/BToub11"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/3rdReichStudies"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#137d1295-aa8f-4fcd-a5d3-bda54b4e6f86">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/TPM">
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#7269747e-0aec-4538-ad3f-0c9f3d28a946"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/oshuaj"/>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+  </tto:Relationship>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/SkyeWalker1995">
+    <rdfs:label>Cloud</rdfs:label>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#003ebf31-9e00-4a3f-9e8e-415888abef4e">
+        <ns1:flame>noflame</ns1:flame>
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/carljacksonshow"/>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/carljacksonshow">
+        <foaf:knows rdf:resource="https://www.twitter.com/SkyeWalker1995"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#08555983-dffd-42a4-8274-344e52058c87"/>
+        <rdfs:label>Cloud</rdfs:label>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#d261faec-49fd-4034-a9f7-06383c2a8a8a">
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/ShanellSharper"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/BxtchimColbss"/>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/OriginalTre_"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#98cb087b-9bd9-4480-92d3-0ff4c53b9ccb">
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/OriginalTre_"/>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/BxtchimColbss"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#719ae62e-0823-40ec-b195-ff18840433af">
+    <ns1:flame>noflame</ns1:flame>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/Indie_aria">
+        <rdfs:label>Cloud</rdfs:label>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#9a6825fb-b994-45eb-9a7c-8bb0a00f574d"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/THEE_Massacre"/>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+  </tto:Relationship>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/Conn___">
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/laurensummaz">
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/Conn___"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#f9f19d31-4c9d-4aca-bf38-4b987dd94a8f"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#d89c9374-6bac-4818-94c2-b27dabcf4862">
+        <ns1:flame>noflame</ns1:flame>
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/laurensummaz"/>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <rdfs:label>Cloud</rdfs:label>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/OriginalMcD">
+    <rdfs:label>Cloud</rdfs:label>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#d53e6202-2074-4fe4-b8b7-7427f8768025">
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+        <ns1:flame>noflame</ns1:flame>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/I_AM_WILDCAT"/>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/I_AM_WILDCAT">
+        <foaf:knows rdf:resource="https://www.twitter.com/OriginalMcD"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#6bf86e0c-06fd-4af5-abef-80c6d1e9f762"/>
+        <rdfs:label>Cloud</rdfs:label>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#d4583ac6-60c5-4143-9b4e-9516e70fc75d">
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/Stealyphil182">
+        <foaf:knows rdf:resource="https://www.twitter.com/The_pint_chaser"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#63763c66-f34b-4889-8a79-332541a536aa"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/lollyyyellen"/>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/The_pint_chaser">
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#ca98fb66-8380-4921-bcab-a9042a9b6029"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/Stealyphil182"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/lollyyyellen"/>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</tto:value>
+  </tto:Relationship>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/QrysBinThynkn">
+    <rdfs:label>Cloud</rdfs:label>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#de9d4f0c-1273-404a-8cee-07c8980905d7">
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+        <ns1:flame>flame</ns1:flame>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/DennySmith45"/>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/DennySmith45">
+        <rdfs:label>Cloud</rdfs:label>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#72622f61-68eb-4075-86a6-96b36d8884c8"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/QrysBinThynkn"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#81195b84-6d10-4a03-bffc-1e264e2e4927">
+    <ns1:flame>flame</ns1:flame>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/ToConservatives">
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#198a1e07-c4bc-4e71-9c27-482d2127e3fd"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/idiotgaybaby"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/Chuck_n_FL"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#c34fdba4-147e-429c-b28f-b09496936f4a"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#addc6fba-ae95-452d-a7ad-a4fef263920a"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/blah_blah_blah_"/>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#435eb9b4-dd13-4e5c-a460-ddce43fa60b8">
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/OriginalTre_"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/ShanellSharper"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/BxtchimColbss"/>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+  </tto:Relationship>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/PPFAQ">
+    <rdfs:label>Cloud</rdfs:label>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#b3c3e708-946f-4011-ad0b-02dfb0d82056">
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/obama_defeat"/>
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+        <ns1:flame>noflame</ns1:flame>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/obama_defeat">
+        <rdfs:label>Cloud</rdfs:label>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#a9adee4c-3d04-402d-a425-a8a0e2d36946"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/PPFAQ"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#63763c66-f34b-4889-8a79-332541a536aa">
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/The_pint_chaser"/>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</tto:value>
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/lollyyyellen">
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#d4583ac6-60c5-4143-9b4e-9516e70fc75d"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/Stealyphil182"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/The_pint_chaser"/>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+  </tto:Relationship>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/ConserveTruth13">
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/AriShaffir">
+        <foaf:knows rdf:resource="https://www.twitter.com/ConserveTruth13"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#61cb90a3-2319-4e10-b834-74bed535c195"/>
+        <rdfs:label>Cloud</rdfs:label>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <rdfs:label>Cloud</rdfs:label>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#ae3526aa-d0fc-43e1-aa6b-8f8252f13011">
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/AriShaffir"/>
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+        <ns1:flame>noflame</ns1:flame>
+      </tto:Relationship>
+    </tto:hasRelationship>
+  </sioc:UserAccount>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#5c8203e3-9bb5-405b-affe-c1a61d31fda5">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/poorbastardmarv"/>
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/markoah">
+        <foaf:knows rdf:resource="https://www.twitter.com/poorbastardmarv"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/ThatLeftyTosser"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#370f5d6a-9dad-47ae-9329-d26aa49eb0bf"/>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+  </tto:Relationship>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/dave_church">
+    <rdfs:label>Cloud</rdfs:label>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#ddff0424-e39e-49bb-8af0-954993904789">
+        <ns1:flame>noflame</ns1:flame>
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/TimOlynik"/>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/TimOlynik">
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/dave_church"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#90e8fc74-c34f-4b51-b91c-f40c1c1516ef"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#abd0ef9a-1893-44e6-836b-111d0b1b16b2">
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/_PrettyMilly">
+        <rdfs:label>Cloud</rdfs:label>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#0c346b34-cb0f-4b40-bdd3-a8c24eceac7c"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#3d2fa5ce-65d2-4a58-b0da-2bc674bf7d7f"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/x_MissDrayah_"/>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+  </tto:Relationship>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/MarieD93">
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/peta">
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#8b9a6caa-aa9d-4b69-b103-9d18a57b0e3d"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/StuntNuts93"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/markmont94"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#c1d73779-9acc-4135-8313-f81a55b488f8"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#1e4f049a-f986-4163-ba2a-4f673658d78b"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/MarieD93"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#8222dd4f-58ab-438c-aa52-f89eeb1bfc37">
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/peta"/>
+        <ns1:flame>noflame</ns1:flame>
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <rdfs:label>Cloud</rdfs:label>
+  </sioc:UserAccount>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#08555983-dffd-42a4-8274-344e52058c87">
+    <ns1:flame>noflame</ns1:flame>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/SkyeWalker1995"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#3d6aa593-46d8-40de-aa2b-7a5a4f477162">
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/SlimJimJaye"/>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/ShanellSharper"/>
+    <ns1:flame>noflame</ns1:flame>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#e335e9db-c898-4510-a0cb-82d12bc5b8dd">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/richardselby">
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/piersmorgan"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#db661fc0-3bb6-44cb-83d5-354f29bb0477"/>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+  </tto:Relationship>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/piersmorgan">
+    <rdfs:label>Cloud</rdfs:label>
+    <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#e335e9db-c898-4510-a0cb-82d12bc5b8dd"/>
+    <foaf:knows rdf:resource="https://www.twitter.com/richardselby"/>
+  </sioc:UserAccount>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#ca98fb66-8380-4921-bcab-a9042a9b6029">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/Stealyphil182"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/lollyyyellen"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#906cae60-a1c9-4fdd-a287-901b27a88824">
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/QueenieCarmen">
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#cd20132b-eaeb-40eb-a9d9-1c45a85a99f5"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/adenium11"/>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#4a4c607c-11dd-49d0-a8dc-fa29eac2008e">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/SeanConreed"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/nartem123"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/deanbcfc"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/TheRationaliser"/>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/CaringSoul786"/>
+  </tto:Relationship>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/TMZ">
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/CesleeNicole">
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#723d8d24-6e5b-4d5f-8cc0-beba1adf8165"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/TMZ"/>
+        <rdfs:label>Cloud</rdfs:label>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <rdfs:label>Cloud</rdfs:label>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#6a235728-6474-4994-9a67-0686d29b79b9">
+        <ns1:flame>noflame</ns1:flame>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/CesleeNicole"/>
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+      </tto:Relationship>
+    </tto:hasRelationship>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/Chuck_n_FL">
+    <foaf:knows rdf:resource="https://www.twitter.com/ToConservatives"/>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/blah_blah_blah_">
+        <rdfs:label>Cloud</rdfs:label>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#8b3adfe8-eaa3-4553-aeaa-c9ac86cc8847"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/Chuck_n_FL"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/ToConservatives"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#81195b84-6d10-4a03-bffc-1e264e2e4927"/>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#6c7cd61d-a4ac-4b55-849b-cbf2d0da3f72">
+        <ns1:flame>flame</ns1:flame>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/ToConservatives"/>
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/idiotgaybaby"/>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#3c28b582-0cbb-47ec-b5e8-5b1ca61c400e">
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/blah_blah_blah_"/>
+        <ns1:flame>flame</ns1:flame>
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/ToConservatives"/>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/idiotgaybaby">
+        <rdfs:label>Cloud</rdfs:label>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#e00dab3e-3f46-4285-a9be-b6e4f740b20c"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/ToConservatives"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/Chuck_n_FL"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <rdfs:label>Cloud</rdfs:label>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/al_7aleem">
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/KenRoth">
+        <foaf:knows rdf:resource="https://www.twitter.com/al_7aleem"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#c81cdc59-e55a-4e6b-b427-6afca1d6d3f1"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/3rdAye"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <rdfs:label>Cloud</rdfs:label>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#58c4e5b5-1725-49c2-9833-e1a14bae1918">
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/3rdAye"/>
+        <ns1:flame>noflame</ns1:flame>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/KenRoth"/>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/3rdAye">
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/al_7aleem"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#2c461436-abcb-4e4b-a6d2-6f730021ab9a"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/KenRoth"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#08830bf3-9af0-49d2-a0ee-9f3337eaa2f9">
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/ThatLeftyTosser"/>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/markoah"/>
+  </tto:Relationship>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/MISSBUMPA">
+    <rdfs:label>Cloud</rdfs:label>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#fee6e79a-cecb-468d-8a41-d481455fe3b5">
+        <ns1:flame>noflame</ns1:flame>
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/dtaKhally"/>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/antibible_t"/>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/dtaKhally">
+        <rdfs:label>Cloud</rdfs:label>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#4c7d9adf-c518-4ee7-b6e4-13a3f48455e2"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/MISSBUMPA"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/antibible_t"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/antibible_t">
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/dtaKhally"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#91577e0c-122d-4231-8d1d-942529876ec7"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/MISSBUMPA"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#91577e0c-122d-4231-8d1d-942529876ec7">
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/dtaKhally"/>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/MISSBUMPA"/>
+  </tto:Relationship>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/GregsGames">
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#3a7a63b2-80d5-46cf-9286-79b83ffb8a1d">
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/MissyMinecraft"/>
+        <ns1:flame>noflame</ns1:flame>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/MissyMinecraft">
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/GregsGames"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#6a4b6a31-738d-4f37-a538-785ddf463497"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <rdfs:label>Cloud</rdfs:label>
+  </sioc:UserAccount>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#7269747e-0aec-4538-ad3f-0c9f3d28a946">
+    <ns1:flame>noflame</ns1:flame>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/oshuaj">
+        <foaf:knows rdf:resource="https://www.twitter.com/TPM"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#137d1295-aa8f-4fcd-a5d3-bda54b4e6f86"/>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#a07ebf3f-e0a4-4cbe-9621-35190ecbc956">
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/peta"/>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#c1d73779-9acc-4135-8313-f81a55b488f8">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/StuntNuts93">
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#801fafef-deb9-4089-b7c6-02626fb33fbc"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/peta"/>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#c34fdba4-147e-429c-b28f-b09496936f4a">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>flame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/Chuck_n_FL"/>
+  </tto:Relationship>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/munizzi22">
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/ReklaitisT16">
+        <foaf:knows rdf:resource="https://www.twitter.com/munizzi22"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#46071fdf-2ece-43ab-a95e-212cb03fbb0c"/>
+        <rdfs:label>Cloud</rdfs:label>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <rdfs:label>Cloud</rdfs:label>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#b2ecd5db-0202-4c21-b7e9-3daa739a3296">
+        <ns1:flame>noflame</ns1:flame>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/ReklaitisT16"/>
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+      </tto:Relationship>
+    </tto:hasRelationship>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/__KATIEEARLY">
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#c67c6cdc-8f3e-4b90-9517-94b746be2b71">
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+        <ns1:flame>noflame</ns1:flame>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/tabyxo"/>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/tabyxo">
+        <foaf:knows rdf:resource="https://www.twitter.com/__KATIEEARLY"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#cb3bc858-6ce1-4cd8-a54f-6309b8ec53a6"/>
+        <rdfs:label>Cloud</rdfs:label>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <rdfs:label>Cloud</rdfs:label>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/PremiumTimesng">
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/CitizenLi">
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/PremiumTimesng"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#259a2591-efa0-428a-92c2-4d5ff9e41be8"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#55d81f04-ff02-4ddd-a599-8747798997cb">
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/CitizenLi"/>
+        <ns1:flame>noflame</ns1:flame>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <rdfs:label>Cloud</rdfs:label>
+  </sioc:UserAccount>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#080975c3-9810-4bbd-8abd-7c20544343ab">
+    <ns1:flame>noflame</ns1:flame>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/ksgriskie">
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#fa92bdb1-59d0-4251-a8cc-f8aca90b9fc4"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/ChandlerBanks"/>
+        <rdfs:label>Cloud</rdfs:label>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#a8d0d20b-9ca9-454c-839d-c0f668708e4f">
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/BToub11"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/alexaabonnes"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/3rdReichStudies"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/deviantdeath_"/>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#30ea18ab-8152-4c0d-86d6-3ade38e16c30">
+    <ns1:flame>noflame</ns1:flame>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/blyan"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/CharMSkates"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/PigeonFudge"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#3d2fa5ce-65d2-4a58-b0da-2bc674bf7d7f">
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/x_MissDrayah_">
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#abd0ef9a-1893-44e6-836b-111d0b1b16b2"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/_PrettyMilly"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#47200de8-5cef-4f95-b86e-f3029bf812bc"/>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#d4748557-2cad-42b4-a237-07d97a9f2583">
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/deanbcfc"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/TheRationaliser"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/CaringSoul786"/>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/SeanConreed"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/ArkanKurd"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#a2243996-6c7c-4553-b9de-41cb5a11faa7">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/missmikhaila"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/OriginalTre_"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/BxtchimColbss"/>
+    <ns1:flame>noflame</ns1:flame>
+  </tto:Relationship>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/gordonsmartsun">
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#4144a15a-83b2-4d4f-acc4-353fb7080af7">
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+        <ns1:flame>noflame</ns1:flame>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/afneil"/>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <rdfs:label>Cloud</rdfs:label>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/afneil">
+        <rdfs:label>Cloud</rdfs:label>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#3c4d1327-9734-4f41-80d4-7c792cfaec5a"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/gordonsmartsun"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#62fcdc48-149e-40e3-bdcf-1f119de38911">
+    <ns1:flame>noflame</ns1:flame>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">8</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/bjohnnyb12"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#72622f61-68eb-4075-86a6-96b36d8884c8">
+    <ns1:flame>flame</ns1:flame>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/QrysBinThynkn"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#3c4d1327-9734-4f41-80d4-7c792cfaec5a">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/gordonsmartsun"/>
+    <ns1:flame>noflame</ns1:flame>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#2c461436-abcb-4e4b-a6d2-6f730021ab9a">
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/KenRoth"/>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/al_7aleem"/>
+    <ns1:flame>noflame</ns1:flame>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#85f00ffb-551f-494a-8460-2f533b245939">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/goaldado">
+        <foaf:knows rdf:resource="https://www.twitter.com/_homespun"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#3905f787-9334-47fe-bae6-c0d10d4e7ef4"/>
+        <rdfs:label>Cloud</rdfs:label>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#db661fc0-3bb6-44cb-83d5-354f29bb0477">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/piersmorgan"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#90e8fc74-c34f-4b51-b91c-f40c1c1516ef">
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/dave_church"/>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</tto:value>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#57f33ee9-a956-4a08-a70c-8927cfbd664e">
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/BToub11"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/deviantdeath_"/>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/beataebe"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/alexaabonnes"/>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</tto:value>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#e6fe7615-51d3-4128-af09-6e44d0c762d5">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/Attwittsend"/>
+    <ns1:flame>noflame</ns1:flame>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#801fafef-deb9-4089-b7c6-02626fb33fbc">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/peta"/>
+    <ns1:flame>noflame</ns1:flame>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#b7caf812-d4a9-42c6-af20-434e60bf9cf7">
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/joyannneee">
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/markpaune"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#4242c429-61d4-4e1d-afce-ab16f79d7874"/>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+    <ns1:flame>flame</ns1:flame>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+  </tto:Relationship>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/ChandlerBanks">
+    <foaf:knows rdf:resource="https://www.twitter.com/ksgriskie"/>
+    <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#080975c3-9810-4bbd-8abd-7c20544343ab"/>
+    <rdfs:label>Cloud</rdfs:label>
+  </sioc:UserAccount>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#2434768b-9bae-48ab-9ce0-366be4842538">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+    <ns1:flame>flame</ns1:flame>
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/Spitefuel">
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/wearefreeagain"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#e3b9116b-7906-4e0b-a620-775013b66d03"/>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#0176dc35-a00f-4861-b074-bbedfc7da3e1">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/JSuhr6">
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#5bea69b2-12a4-40d5-a1f4-5c53b8d22c57"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/JBilhorn"/>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+  </tto:Relationship>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/josenutjob">
+    <tto:hasRelationship>
+      <tto:Relationship rdf:about="http://www.fedemontori.eu/#aafe9f1d-20d4-48ba-8bd4-16f06f36da74">
+        <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+        <ns1:flame>noflame</ns1:flame>
+        <tto:hasCorrespondant rdf:resource="https://www.twitter.com/sacha_is_good"/>
+      </tto:Relationship>
+    </tto:hasRelationship>
+    <rdfs:label>Cloud</rdfs:label>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/sacha_is_good">
+        <foaf:knows rdf:resource="https://www.twitter.com/josenutjob"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#cb36b4e5-5c22-4c8c-a74a-ba61812fb9e3"/>
+        <rdfs:label>Cloud</rdfs:label>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#6bf86e0c-06fd-4af5-abef-80c6d1e9f762">
+    <ns1:flame>noflame</ns1:flame>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/OriginalMcD"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#d37fd153-4a84-4660-af6d-d488bf8472f8">
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/joshgreenman"/>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#e3b9116b-7906-4e0b-a620-775013b66d03">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</tto:value>
+    <ns1:flame>flame</ns1:flame>
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/wearefreeagain">
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#2434768b-9bae-48ab-9ce0-366be4842538"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/Spitefuel"/>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+  </tto:Relationship>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/THEE_Massacre">
+    <foaf:knows rdf:resource="https://www.twitter.com/Indie_aria"/>
+    <rdfs:label>Cloud</rdfs:label>
+    <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#719ae62e-0823-40ec-b195-ff18840433af"/>
+  </sioc:UserAccount>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#61cb90a3-2319-4e10-b834-74bed535c195">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/ConserveTruth13"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#99a45f13-7be6-4a48-b7b4-af23ba97a150">
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/StephTolev">
+        <rdfs:label>Cloud</rdfs:label>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#bfbbcf24-8040-4cdd-b983-d1d8ba3cc516"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/Mr_Ectomy"/>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#cd20132b-eaeb-40eb-a9d9-1c45a85a99f5">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/adenium11">
+        <rdfs:label>Cloud</rdfs:label>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#906cae60-a1c9-4fdd-a287-901b27a88824"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/QueenieCarmen"/>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#72087938-5951-4ebd-96a0-157140c761e1">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/deviantdeath_"/>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/BToub11"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/3rdReichStudies"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/beataebe"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#cb36b4e5-5c22-4c8c-a74a-ba61812fb9e3">
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/josenutjob"/>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#fa92bdb1-59d0-4251-a8cc-f8aca90b9fc4">
+    <ns1:flame>noflame</ns1:flame>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/ChandlerBanks"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#4c7d9adf-c518-4ee7-b6e4-13a3f48455e2">
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/antibible_t"/>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/MISSBUMPA"/>
+  </tto:Relationship>
+  <owl:Class rdf:about="http://www.fedemontori.eu/ns#Conversation">
+    <xs:comment xml:lang="en"> A class that represents a conversation among more people. </xs:comment>
+    <rdfs:subClassOf rdf:resource="sioc:Forum"/>
+    <xs:label xml:lang="en"> TTO conversation </xs:label>
+  </owl:Class>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#84ecf417-2f6e-4e70-9451-7da8f6e67907">
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/LeahNTorres"/>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#4f2f3434-5312-404b-8a87-31cb796fd03f">
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/ArkanKurd"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/SeanConreed"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/deanbcfc"/>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/nartem123"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/TheRationaliser"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#723d8d24-6e5b-4d5f-8cc0-beba1adf8165">
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/TMZ"/>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#921d853e-6f20-431b-aaba-9dc1dec8aaad">
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/CheekyLilchelsx">
+        <rdfs:label>Cloud</rdfs:label>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#37a474e5-590f-4522-a214-9c76c04c27a8"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/emilyjaggar"/>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#0c346b34-cb0f-4b40-bdd3-a8c24eceac7c">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/x_MissDrayah_"/>
+    <ns1:flame>noflame</ns1:flame>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#9a6825fb-b994-45eb-9a7c-8bb0a00f574d">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/THEE_Massacre"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#8b9a6caa-aa9d-4b69-b103-9d18a57b0e3d">
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/markmont94">
+        <rdfs:label>Cloud</rdfs:label>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#a07ebf3f-e0a4-4cbe-9621-35190ecbc956"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/peta"/>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+  </tto:Relationship>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/JBilhorn">
+    <rdfs:label>Cloud</rdfs:label>
+    <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#0176dc35-a00f-4861-b074-bbedfc7da3e1"/>
+    <foaf:knows rdf:resource="https://www.twitter.com/JSuhr6"/>
+  </sioc:UserAccount>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#9c046ae8-066f-4418-92c6-87c58e41d297">
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/ArkanKurd"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/nartem123"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/TheRationaliser"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/CaringSoul786"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/SeanConreed"/>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</tto:value>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#5bea69b2-12a4-40d5-a1f4-5c53b8d22c57">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/JBilhorn"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#4242c429-61d4-4e1d-afce-ab16f79d7874">
+    <ns1:flame>flame</ns1:flame>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/markpaune">
+        <foaf:knows rdf:resource="https://www.twitter.com/joyannneee"/>
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#b7caf812-d4a9-42c6-af20-434e60bf9cf7"/>
+        <rdfs:label>Cloud</rdfs:label>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#6a4b6a31-738d-4f37-a538-785ddf463497">
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/GregsGames"/>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#1e4f049a-f986-4163-ba2a-4f673658d78b">
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/MarieD93"/>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#ebbd65d0-e144-4cb6-87d3-e55ab0a14765">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/PigeonFudge"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/blyan"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/CharMSkates"/>
+  </tto:Relationship>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/Mr_Ectomy">
+    <foaf:knows rdf:resource="https://www.twitter.com/StephTolev"/>
+    <rdfs:label>Cloud</rdfs:label>
+    <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#99a45f13-7be6-4a48-b7b4-af23ba97a150"/>
+  </sioc:UserAccount>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#8b3adfe8-eaa3-4553-aeaa-c9ac86cc8847">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>flame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/Chuck_n_FL"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/ToConservatives"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#8b50a6c4-974e-40ca-8795-ff82dda265be">
+    <ns1:flame>noflame</ns1:flame>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/BxtchimColbss"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/CiciArlene"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/OriginalTre_"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#cb3bc858-6ce1-4cd8-a54f-6309b8ec53a6">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/__KATIEEARLY"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#249c257e-de65-40eb-a558-f924acc8f207">
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/BToub11"/>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/beataebe"/>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/alexaabonnes"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/3rdReichStudies"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#cf38f023-3a24-4f56-a203-a27063d9bf9b">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/SlimJimJaye"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/x_SammieSam_x"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#47200de8-5cef-4f95-b86e-f3029bf812bc">
+    <ns1:flame>noflame</ns1:flame>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/_PrettyMilly"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#259a2591-efa0-428a-92c2-4d5ff9e41be8">
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/PremiumTimesng"/>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#198a1e07-c4bc-4e71-9c27-482d2127e3fd">
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/idiotgaybaby"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/Chuck_n_FL"/>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>flame</ns1:flame>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#c81cdc59-e55a-4e6b-b427-6afca1d6d3f1">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/3rdAye"/>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/al_7aleem"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#37a474e5-590f-4522-a214-9c76c04c27a8">
+    <tto:hasCorrespondant>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/emilyjaggar">
+        <tto:hasRelationship rdf:resource="http://www.fedemontori.eu/#921d853e-6f20-431b-aaba-9dc1dec8aaad"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/CheekyLilchelsx"/>
+        <rdfs:label>Cloud</rdfs:label>
+      </sioc:UserAccount>
+    </tto:hasCorrespondant>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#0905a73a-bf5d-49f0-a85a-aa2822ffb26f">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/blyan"/>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/CharMSkates"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#e00dab3e-3f46-4285-a9be-b6e4f740b20c">
+    <ns1:flame>flame</ns1:flame>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/Chuck_n_FL"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/ToConservatives"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#bfbbcf24-8040-4cdd-b983-d1d8ba3cc516">
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/Mr_Ectomy"/>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#46071fdf-2ece-43ab-a95e-212cb03fbb0c">
+    <ns1:flame>noflame</ns1:flame>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/munizzi22"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#1d4d5ffe-0483-43d5-af68-f071d97610fc">
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/CiciArlene"/>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/missmikhaila"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/OriginalTre_"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#f9f19d31-4c9d-4aca-bf38-4b987dd94a8f">
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/Conn___"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#addc6fba-ae95-452d-a7ad-a4fef263920a">
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/Chuck_n_FL"/>
+    <ns1:flame>flame</ns1:flame>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/blah_blah_blah_"/>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#a9adee4c-3d04-402d-a425-a8a0e2d36946">
+    <ns1:flame>noflame</ns1:flame>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/PPFAQ"/>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</tto:value>
+  </tto:Relationship>
+  <tto:Relationship rdf:about="http://www.fedemontori.eu/#fd9513f8-15f6-4186-963b-a7af1049ecf0">
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/SeanConreed"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/CaringSoul786"/>
+    <ns1:flame>noflame</ns1:flame>
+    <tto:value rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</tto:value>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/deanbcfc"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/nartem123"/>
+    <tto:hasCorrespondant rdf:resource="https://www.twitter.com/ArkanKurd"/>
+  </tto:Relationship>
+</rdf:RDF>

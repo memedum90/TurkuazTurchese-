@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:ns1="http://ns.inria.fr/semsna/2009/06/21/"
+  xmlns:sioc="http://rdfs.org/sioc/ns#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/bjohnnyb12">
+    <ns1:value>7</ns1:value>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/nogirlemen">
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/bjohnnyb12"/>
+        <ns1:value>1</ns1:value>
+        <ns1:value>7</ns1:value>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <rdfs:label>Cloud</rdfs:label>
+    <ns1:value>1</ns1:value>
+    <ns1:value>8</ns1:value>
+    <foaf:knows rdf:resource="https://www.twitter.com/bjohnnyb12"/>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/OriginalTre_">
+    <ns1:value>1</ns1:value>
+    <rdfs:label>Cloud</rdfs:label>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/ShanellSharper">
+        <foaf:knows rdf:resource="https://www.twitter.com/SlimJimJaye"/>
+        <ns1:value>3</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/BxtchimColbss"/>
+        <ns1:value>2</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/OriginalTre_"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/x_SammieSam_x"/>
+        <ns1:value>1</ns1:value>
+        <rdfs:label>Cloud</rdfs:label>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/CiciArlene">
+        <rdfs:label>Cloud</rdfs:label>
+        <ns1:value>1</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/missmikhaila"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/BxtchimColbss"/>
+        <ns1:value>2</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/OriginalTre_"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <ns1:value>2</ns1:value>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/BxtchimColbss">
+        <ns1:value>1</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/OriginalTre_"/>
+        <ns1:value>2</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/BxtchimColbss"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/CiciArlene"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/ShanellSharper"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/missmikhaila"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/missmikhaila">
+        <ns1:value>1</ns1:value>
+        <ns1:value>2</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/CiciArlene"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/OriginalTre_"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/BxtchimColbss"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <foaf:knows rdf:resource="https://www.twitter.com/OriginalTre_"/>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/Attwittsend">
+    <ns1:value>1</ns1:value>
+    <rdfs:label>Cloud</rdfs:label>
+    <foaf:knows rdf:resource="https://www.twitter.com/Attwittsend"/>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/KaleiLuvsHawaii">
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/Attwittsend"/>
+        <ns1:value>1</ns1:value>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/SlimJimJaye">
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/x_SammieSam_x">
+        <foaf:knows rdf:resource="https://www.twitter.com/SlimJimJaye"/>
+        <ns1:value>1</ns1:value>
+        <rdfs:label>Cloud</rdfs:label>
+        <ns1:value>2</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/ShanellSharper"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <ns1:value>1</ns1:value>
+    <rdfs:label>Cloud</rdfs:label>
+    <ns1:value>2</ns1:value>
+    <foaf:knows rdf:resource="https://www.twitter.com/ShanellSharper"/>
+    <ns1:value>3</ns1:value>
+    <foaf:knows rdf:resource="https://www.twitter.com/SlimJimJaye"/>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/SeanConreed">
+    <foaf:knows rdf:resource="https://www.twitter.com/SeanConreed"/>
+    <ns1:value>7</ns1:value>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/nartem123">
+        <foaf:knows rdf:resource="https://www.twitter.com/SeanConreed"/>
+        <ns1:value>3</ns1:value>
+        <ns1:value>2</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/ArkanKurd"/>
+        <ns1:value>1</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/CaringSoul786"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <ns1:value>7</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/TheRationaliser"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/deanbcfc"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/deanbcfc">
+        <ns1:value>2</ns1:value>
+        <ns1:value>7</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/ArkanKurd"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/TheRationaliser"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <ns1:value>3</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/nartem123"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/SeanConreed"/>
+        <ns1:value>1</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/CaringSoul786"/>
+        <ns1:value>6</ns1:value>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <ns1:value>3</ns1:value>
+    <ns1:value>1</ns1:value>
+    <rdfs:label>Cloud</rdfs:label>
+    <ns1:value>2</ns1:value>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/TheRationaliser">
+        <foaf:knows rdf:resource="https://www.twitter.com/ArkanKurd"/>
+        <ns1:value>3</ns1:value>
+        <ns1:value>2</ns1:value>
+        <ns1:value>6</ns1:value>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/deanbcfc"/>
+        <ns1:value>7</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/SeanConreed"/>
+        <ns1:value>1</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/CaringSoul786"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/nartem123"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <ns1:value>6</ns1:value>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/ArkanKurd">
+        <ns1:value>1</ns1:value>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/CaringSoul786"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/SeanConreed"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/TheRationaliser"/>
+        <ns1:value>2</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/nartem123"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/deanbcfc"/>
+        <ns1:value>3</ns1:value>
+        <ns1:value>6</ns1:value>
+        <ns1:value>7</ns1:value>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/CaringSoul786">
+        <ns1:value>2</ns1:value>
+        <ns1:value>6</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/TheRationaliser"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/deanbcfc"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/SeanConreed"/>
+        <ns1:value>7</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/nartem123"/>
+        <ns1:value>3</ns1:value>
+        <ns1:value>1</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/ArkanKurd"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/blyan">
+    <ns1:value>1</ns1:value>
+    <ns1:value>3</ns1:value>
+    <foaf:knows rdf:resource="https://www.twitter.com/blyan"/>
+    <rdfs:label>Cloud</rdfs:label>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/PigeonFudge">
+        <ns1:value>2</ns1:value>
+        <rdfs:label>Cloud</rdfs:label>
+        <ns1:value>3</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/blyan"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/CharMSkates"/>
+        <ns1:value>1</ns1:value>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/CharMSkates">
+        <foaf:knows rdf:resource="https://www.twitter.com/CharMSkates"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/PigeonFudge"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/blyan"/>
+        <ns1:value>3</ns1:value>
+        <ns1:value>1</ns1:value>
+        <ns1:value>2</ns1:value>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <ns1:value>2</ns1:value>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/sacha_is_good">
+    <rdfs:label>Cloud</rdfs:label>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/josenutjob">
+        <ns1:value>1</ns1:value>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/sacha_is_good"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <ns1:value>1</ns1:value>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/gordonsmartsun">
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/afneil">
+        <ns1:value>1</ns1:value>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/gordonsmartsun"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <rdfs:label>Cloud</rdfs:label>
+    <ns1:value>1</ns1:value>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/PPFAQ">
+    <ns1:value>1</ns1:value>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/obama_defeat">
+        <ns1:value>1</ns1:value>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/PPFAQ"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <rdfs:label>Cloud</rdfs:label>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/StephTolev">
+    <rdfs:label>Cloud</rdfs:label>
+    <ns1:value>1</ns1:value>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/Mr_Ectomy">
+        <foaf:knows rdf:resource="https://www.twitter.com/StephTolev"/>
+        <ns1:value>1</ns1:value>
+        <rdfs:label>Cloud</rdfs:label>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/beataebe">
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/deviantdeath_">
+        <foaf:knows rdf:resource="https://www.twitter.com/beataebe"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/alexaabonnes"/>
+        <ns1:value>4</ns1:value>
+        <ns1:value>1</ns1:value>
+        <rdfs:label>Cloud</rdfs:label>
+        <ns1:value>2</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/BToub11"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/3rdReichStudies"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/3rdReichStudies">
+        <rdfs:label>Cloud</rdfs:label>
+        <ns1:value>2</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/beataebe"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/alexaabonnes"/>
+        <ns1:value>1</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/deviantdeath_"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/BToub11"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <ns1:value>1</ns1:value>
+    <rdfs:label>Cloud</rdfs:label>
+    <ns1:value>4</ns1:value>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/BToub11">
+        <foaf:knows rdf:resource="https://www.twitter.com/alexaabonnes"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/beataebe"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/3rdReichStudies"/>
+        <ns1:value>1</ns1:value>
+        <ns1:value>4</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/deviantdeath_"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <ns1:value>2</ns1:value>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/alexaabonnes">
+        <ns1:value>2</ns1:value>
+        <ns1:value>4</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/BToub11"/>
+        <ns1:value>1</ns1:value>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/3rdReichStudies"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/deviantdeath_"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/beataebe"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/adenium11">
+    <rdfs:label>Cloud</rdfs:label>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/QueenieCarmen">
+        <rdfs:label>Cloud</rdfs:label>
+        <ns1:value>2</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/adenium11"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <ns1:value>1</ns1:value>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/ChandlerBanks">
+    <rdfs:label>Cloud</rdfs:label>
+    <ns1:value>2</ns1:value>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/ksgriskie">
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/ChandlerBanks"/>
+        <ns1:value>1</ns1:value>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/joyannneee">
+    <ns1:value>-2</ns1:value>
+    <rdfs:label>Cloud</rdfs:label>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/markpaune">
+        <rdfs:label>Cloud</rdfs:label>
+        <ns1:value>-1</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/joyannneee"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/intelligencer">
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/joshgreenman">
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/intelligencer"/>
+        <ns1:value>1</ns1:value>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <rdfs:label>Cloud</rdfs:label>
+    <ns1:value>1</ns1:value>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/peta">
+    <ns1:value>1</ns1:value>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/StuntNuts93">
+        <ns1:value>1</ns1:value>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/peta"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <ns1:value>2</ns1:value>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/MarieD93">
+        <ns1:value>2</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/peta"/>
+        <rdfs:label>Cloud</rdfs:label>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/markmont94">
+        <ns1:value>2</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/peta"/>
+        <rdfs:label>Cloud</rdfs:label>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <rdfs:label>Cloud</rdfs:label>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/ThatLeftyTosser">
+    <ns1:value>2</ns1:value>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/poorbastardmarv">
+        <foaf:knows rdf:resource="https://www.twitter.com/ThatLeftyTosser"/>
+        <ns1:value>1</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/markoah"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <ns1:value>2</ns1:value>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <ns1:value>1</ns1:value>
+    <rdfs:label>Cloud</rdfs:label>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/markoah">
+        <rdfs:label>Cloud</rdfs:label>
+        <ns1:value>2</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/poorbastardmarv"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/ThatLeftyTosser"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/KenRoth">
+    <ns1:value>1</ns1:value>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/3rdAye">
+        <ns1:value>1</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/al_7aleem"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/KenRoth"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <rdfs:label>Cloud</rdfs:label>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/al_7aleem">
+        <foaf:knows rdf:resource="https://www.twitter.com/3rdAye"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/KenRoth"/>
+        <ns1:value>1</ns1:value>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/CitizenLi">
+    <ns1:value>1</ns1:value>
+    <rdfs:label>Cloud</rdfs:label>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/PremiumTimesng">
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/CitizenLi"/>
+        <ns1:value>1</ns1:value>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/antibible_t">
+    <ns1:value>1</ns1:value>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/dtaKhally">
+        <ns1:value>1</ns1:value>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/antibible_t"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/MISSBUMPA"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/MISSBUMPA">
+        <rdfs:label>Cloud</rdfs:label>
+        <ns1:value>2</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/dtaKhally"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/antibible_t"/>
+        <ns1:value>1</ns1:value>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <rdfs:label>Cloud</rdfs:label>
+    <ns1:value>2</ns1:value>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/x_MissDrayah_">
+    <rdfs:label>Cloud</rdfs:label>
+    <ns1:value>2</ns1:value>
+    <ns1:value>1</ns1:value>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/_PrettyMilly">
+        <foaf:knows rdf:resource="https://www.twitter.com/x_MissDrayah_"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <ns1:value>2</ns1:value>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/TMZ">
+    <rdfs:label>Cloud</rdfs:label>
+    <ns1:value>1</ns1:value>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/CesleeNicole">
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/TMZ"/>
+        <ns1:value>1</ns1:value>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/GregsGames">
+    <rdfs:label>Cloud</rdfs:label>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/MissyMinecraft">
+        <ns1:value>1</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/GregsGames"/>
+        <rdfs:label>Cloud</rdfs:label>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <ns1:value>1</ns1:value>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/ReklaitisT16">
+    <rdfs:label>Cloud</rdfs:label>
+    <ns1:value>1</ns1:value>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/munizzi22">
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/ReklaitisT16"/>
+        <ns1:value>1</ns1:value>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/ConserveTruth13">
+    <ns1:value>1</ns1:value>
+    <rdfs:label>Cloud</rdfs:label>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/AriShaffir">
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/ConserveTruth13"/>
+        <ns1:value>1</ns1:value>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/LeahNTorres">
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/LiveActionFilms">
+        <foaf:knows rdf:resource="https://www.twitter.com/LeahNTorres"/>
+        <ns1:value>1</ns1:value>
+        <rdfs:label>Cloud</rdfs:label>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <ns1:value>1</ns1:value>
+    <rdfs:label>Cloud</rdfs:label>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/lollyyyellen">
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/The_pint_chaser">
+        <rdfs:label>Cloud</rdfs:label>
+        <ns1:value>3</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/Stealyphil182"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/lollyyyellen"/>
+        <ns1:value>4</ns1:value>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <ns1:value>1</ns1:value>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/Stealyphil182">
+        <ns1:value>4</ns1:value>
+        <ns1:value>1</ns1:value>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/lollyyyellen"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/The_pint_chaser"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <rdfs:label>Cloud</rdfs:label>
+    <ns1:value>3</ns1:value>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/Chuck_n_FL">
+    <rdfs:label>Cloud</rdfs:label>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/blah_blah_blah_">
+        <foaf:knows rdf:resource="https://www.twitter.com/Chuck_n_FL"/>
+        <foaf:knows rdf:resource="https://www.twitter.com/ToConservatives"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <ns1:value>-1</ns1:value>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <ns1:value>-1</ns1:value>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/idiotgaybaby">
+        <ns1:value>-1</ns1:value>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/Chuck_n_FL"/>
+        <ns1:value>-2</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/ToConservatives"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/ToConservatives">
+        <foaf:knows rdf:resource="https://www.twitter.com/idiotgaybaby"/>
+        <ns1:value>-2</ns1:value>
+        <ns1:value>-1</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/blah_blah_blah_"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/Chuck_n_FL"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/tabyxo">
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/__KATIEEARLY">
+        <foaf:knows rdf:resource="https://www.twitter.com/tabyxo"/>
+        <rdfs:label>Cloud</rdfs:label>
+        <ns1:value>1</ns1:value>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <rdfs:label>Cloud</rdfs:label>
+    <ns1:value>1</ns1:value>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/goaldado">
+    <rdfs:label>Cloud</rdfs:label>
+    <ns1:value>1</ns1:value>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/_homespun">
+        <rdfs:label>Cloud</rdfs:label>
+        <ns1:value>1</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/goaldado"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/JSuhr6">
+    <rdfs:label>Cloud</rdfs:label>
+    <ns1:value>1</ns1:value>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/JBilhorn">
+        <ns1:value>1</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/JSuhr6"/>
+        <rdfs:label>Cloud</rdfs:label>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/DennySmith45">
+    <rdfs:label>Cloud</rdfs:label>
+    <ns1:value>-1</ns1:value>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/QrysBinThynkn">
+        <ns1:value>-1</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/DennySmith45"/>
+        <rdfs:label>Cloud</rdfs:label>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/piersmorgan">
+    <rdfs:label>Cloud</rdfs:label>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/richardselby">
+        <rdfs:label>Cloud</rdfs:label>
+        <ns1:value>1</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/piersmorgan"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <ns1:value>1</ns1:value>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/laurensummaz">
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/Conn___">
+        <foaf:knows rdf:resource="https://www.twitter.com/laurensummaz"/>
+        <ns1:value>1</ns1:value>
+        <rdfs:label>Cloud</rdfs:label>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <ns1:value>1</ns1:value>
+    <rdfs:label>Cloud</rdfs:label>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/dave_church">
+    <rdfs:label>Cloud</rdfs:label>
+    <ns1:value>3</ns1:value>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/TimOlynik">
+        <rdfs:label>Cloud</rdfs:label>
+        <ns1:value>2</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/dave_church"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/oshuaj">
+    <ns1:value>1</ns1:value>
+    <rdfs:label>Cloud</rdfs:label>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/TPM">
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/oshuaj"/>
+        <ns1:value>1</ns1:value>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/emilyjaggar">
+    <rdfs:label>Cloud</rdfs:label>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/CheekyLilchelsx">
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/emilyjaggar"/>
+        <ns1:value>2</ns1:value>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <ns1:value>3</ns1:value>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/SkyeWalker1995">
+    <ns1:value>2</ns1:value>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/carljacksonshow">
+        <ns1:value>1</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/SkyeWalker1995"/>
+        <rdfs:label>Cloud</rdfs:label>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <rdfs:label>Cloud</rdfs:label>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/Spitefuel">
+    <ns1:value>-2</ns1:value>
+    <rdfs:label>Cloud</rdfs:label>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/wearefreeagain">
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/Spitefuel"/>
+        <ns1:value>-3</ns1:value>
+      </sioc:UserAccount>
+    </foaf:knows>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/Indie_aria">
+    <ns1:value>1</ns1:value>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/THEE_Massacre">
+        <ns1:value>1</ns1:value>
+        <rdfs:label>Cloud</rdfs:label>
+        <foaf:knows rdf:resource="https://www.twitter.com/Indie_aria"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <rdfs:label>Cloud</rdfs:label>
+  </sioc:UserAccount>
+  <sioc:UserAccount rdf:about="https://www.twitter.com/I_AM_WILDCAT">
+    <ns1:value>1</ns1:value>
+    <foaf:knows>
+      <sioc:UserAccount rdf:about="https://www.twitter.com/OriginalMcD">
+        <rdfs:label>Cloud</rdfs:label>
+        <ns1:value>1</ns1:value>
+        <foaf:knows rdf:resource="https://www.twitter.com/I_AM_WILDCAT"/>
+      </sioc:UserAccount>
+    </foaf:knows>
+    <rdfs:label>Cloud</rdfs:label>
+  </sioc:UserAccount>
+</rdf:RDF>

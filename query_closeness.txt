@@ -1,0 +1,6 @@
+# The closeness centrality of a resource represents its capacity to join (and to be reached by) any resource in a network. The closeness centrality of a node is the inverse sum of its shortest distances to each other resource.
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+SELECT ?x ?to (pathLength($path) as ?length) (sum(?length) as ?centrality) WHERE {
+{?x $path ?to
+filter(match($path, foaf:knows, 's'))}
+} GROUP BY ?x

@@ -1,0 +1,7 @@
+# This query calculates the outDegree of a node x. The number denotes the depth of the path search. A node with a high outDegree is considered to be a hub, so a node that is a good information diffuser.
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+SELECT ?x (count(?y) as ?degree) WHERE{
+{?x $path ?y
+filter(match($path, foaf:knows))
+filter(pathLength($path) <= 10) }
+} GROUP BY ?x

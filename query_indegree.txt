@@ -1,0 +1,7 @@
+# This query calculates the inDegree of a node x. The number denotes the depth of the path search. A node with a high inDegree is considered to be an authority, so a node with high power and consideration.
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+SELECT ?x (count(?y) as ?degree) WHERE{
+{?y $path ?x
+filter(match($path, foaf:knows))
+filter(pathLength($path) <= 10) }
+} GROUP BY ?x
