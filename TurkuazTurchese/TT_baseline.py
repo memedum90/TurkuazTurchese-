@@ -17,11 +17,11 @@ import re
 
 # WEIGHTS
 Wupp = 0.1 # Weight assigned to one uppercase
-Wmrk = 1.5 # Weigth assigned to one question or exclamation mark
-Wgud = -8 # Weigth assigned to one good smiley
+Wmrk = 2.0 # Weigth assigned to one question or exclamation mark
+Wgud = -10 # Weigth assigned to one good smiley
 Wbad = -0.5 # Weight assigned to one bad smiley
 Wvlg = 4 # Weight assigned to one bad or risky word
-Wump = 5 # Weight assigned to one politeness point
+Wump = 0.5 # Weight assigned to one politeness point
 
 
 
@@ -74,6 +74,6 @@ def compute_baseline_score(conver):
         Tmrk += tw['marks']
         Tgud += tw['good']
         Tbad += tw['bad']
-        Tvlg += tw['vulgarity']
+        Tvlg += tw['rawvulgarity']
         Tump += tw['unpoliteness']
-    return float(Wupp*Tupp + Wmrk*Tmrk + Wgud*Tgud + Wbad*Tbad + Wvlg*Tvlg + Wump*Tump) / (len(conver))
+    return float(Wupp*Tupp + Wmrk*Tmrk + Wgud*Tgud + Wbad*Tbad + Wvlg*Tvlg ) / (len(conver))

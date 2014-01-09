@@ -32,9 +32,9 @@ public class Main {
 //	static String generalQuery = "PREFIX foaf: <http://xmlns.com/foaf/0.1/>"
 //		+ " SELECT ?x ?y WHERE {?x foaf:knows ?y}";
 	static String generalQuery = "PREFIX tto: <http://www.fedemontori.eu/ns#>"
-		+ " PREFIX ns1: <http://www.fedemontori.eu/>"
-		+ " SELECT ?x ?f ?y WHERE {?x tto:hasRelationship ?r ."
-		+ " ?r ns1:flame ?f ."
+		+ " SELECT ?x ?f ?v ?y WHERE {?x tto:hasRelationship ?r ."
+		+ " ?r tto:flame ?f ."
+		+ " ?r tto:value ?v ."
 		+ " ?r tto:hasCorrespondant ?y"
 		+ " }";
 	
@@ -52,23 +52,20 @@ public class Main {
 	 *  A node with a high inDegree is considered to be an authority, so a node with high power and consideration.
 	 *  respectively, its variants N and F calculates only with non flames and flames respectively */
 	static String inDegree1 = "PREFIX tto: <http://www.fedemontori.eu/ns#>"
-		+ " PREFIX ns1: <http://www.fedemontori.eu/>"
 		+ " SELECT ?x (sum(?w) as ?degree) WHERE{"
 		+ " { ?y tto:hasCorrespondant ?x ."
 		+ " ?y tto:value ?w }"
 		+ "	} GROUP BY ?x";
 	static String inDegree1F = "PREFIX tto: <http://www.fedemontori.eu/ns#>"
-		+ " PREFIX ns1: <http://www.fedemontori.eu/>"
 		+ " SELECT ?x (sum(?w) as ?degree) WHERE{"
 		+ " { ?y tto:hasCorrespondant ?x ."
-		+ " ?y ns1:flame \"flame\" ."
+		+ " ?y tto:flame \"1\" ."
 		+ " ?y tto:value ?w }"
 		+ "	} GROUP BY ?x";
 	static String inDegree1N = "PREFIX tto: <http://www.fedemontori.eu/ns#>"
-		+ " PREFIX ns1: <http://www.fedemontori.eu/>"
 		+ " SELECT ?x (sum(?w) as ?degree) WHERE{"
 		+ " { ?y tto:hasCorrespondant ?x ."
-		+ " ?y ns1:flame \"noflame\" ."
+		+ " ?y tto:flame \"0\" ."
 		+ " ?y tto:value ?w }"
 		+ "	} GROUP BY ?x";
 	
@@ -85,26 +82,23 @@ public class Main {
 	 *  A node with a high outDegree is considered to be a hub, so a node that is a good information diffuser.
 	 *  respectively, its variants N and F calculates only with non flames and flames respectively */
 	static String outDegree1 = "PREFIX tto: <http://www.fedemontori.eu/ns#>"
-		+ " PREFIX ns1: <http://www.fedemontori.eu/>"
 		+ " SELECT ?x (sum(?w) as ?degree) WHERE{"
 		+ " { ?x tto:hasRelationship ?y ."
 		+ " ?y tto:hasCorrespondant ?s ."
 		+ " ?y tto:value ?w }"
 		+ "	} GROUP BY ?x";
 	static String outDegree1F = "PREFIX tto: <http://www.fedemontori.eu/ns#>"
-		+ " PREFIX ns1: <http://www.fedemontori.eu/>"
 		+ " SELECT ?x (sum(?w) as ?degree) WHERE{"
 		+ " { ?x tto:hasRelationship ?y ."
 		+ " ?y tto:hasCorrespondant ?s ."
-		+ " ?y ns1:flame \"flame\" ."
+		+ " ?y tto:flame \"1\" ."
 		+ " ?y tto:value ?w }"
 		+ "	} GROUP BY ?x";
 	static String outDegree1N = "PREFIX tto: <http://www.fedemontori.eu/ns#>"
-		+ " PREFIX ns1: <http://www.fedemontori.eu/>"
 		+ " SELECT ?x (sum(?w) as ?degree) WHERE{"
 		+ " { ?x tto:hasRelationship ?y ."
 		+ " ?y tto:hasCorrespondant ?s ."
-		+ " ?y ns1:flame \"noflame\" ."
+		+ " ?y tto:flame \"0\" ."
 		+ " ?y tto:value ?w }"
 		+ "	} GROUP BY ?x";
 	
@@ -136,10 +130,59 @@ public class Main {
 
 	/* We use a simplified version of the betweenness and we check only how many conversations flames the user is involved in. */
 	static String smplBtwn = "PREFIX tto: <http://www.fedemontori.eu/ns#>"
+			
 		+ " PREFIX ns1: <http://www.fedemontori.eu/>"
 		+ "	SELECT ?x (count(?to) as ?btw) WHERE {"
 		+ "	{?x tto:hasRelationship ?to }"
 		+ " }";
+	
+	/* Follows and is followed by x people in the same flaming on y */
+	static String denFlm = "PREFIX tto: <http://www.fedemontori.eu/ns#>"
+		+ " SELECT ?x (count(?c) as ?flm) WHERE {"
+		+ " ?x tto:hasRelationship ?r ."
+		+ " ?r tto:flame \"1\" ."
+		+ " ?r tto:hasCorrespondant ?c"
+		+ " } group by ?x";
+	static String flwFlm = "PREFIX tto: <http://www.fedemontori.eu/ns#>"
+		+ " PREFIX sioc: <http://rdfs.org/sioc/ns#>"
+		+ " SELECT ?x (count(?c) as ?flw) WHERE {"
+		+ " ?x tto:hasRelationship ?r ."
+		+ " ?r tto:flame \"1\" ."
+		+ " ?r tto:hasCorrespondant ?c ."
+		+ " ?x sioc:follows ?c"
+		+ " } group by ?x";
+	static String fndFlm = "PREFIX tto: <http://www.fedemontori.eu/ns#>"
+		+ " PREFIX sioc: <http://rdfs.org/sioc/ns#>"
+		+ " SELECT ?x (count(?c) as ?fnd) WHERE {"
+		+ " ?x tto:hasRelationship ?r ."
+		+ " ?r tto:flame \"1\" ."
+		+ " ?r tto:hasCorrespondant ?c ."
+		+ " ?c sioc:follows ?x"
+		+ " } group by ?x";		
+
+	/* Follows and is followed by x people in the same non flaming on y */
+	static String denNFlm = "PREFIX tto: <http://www.fedemontori.eu/ns#>"
+		+ " SELECT ?x (count(?c) as ?flm) WHERE {"
+		+ " ?x tto:hasRelationship ?r ."
+		+ " ?r tto:flame \"0\" ."
+		+ " ?r tto:hasCorrespondant ?c "
+		+ " } group by ?x";
+	static String flwNFlm = "PREFIX tto: <http://www.fedemontori.eu/ns#>"
+		+ " PREFIX sioc: <http://rdfs.org/sioc/ns#>"
+		+ " SELECT ?x (count(?c) as ?flw) WHERE {"
+		+ " ?x tto:hasRelationship ?r ."
+		+ " ?r tto:flame \"0\" ."
+		+ " ?r tto:hasCorrespondant ?c ."
+		+ " ?x sioc:follows ?c"
+		+ " } group by ?x";
+	static String fndNFlm = "PREFIX tto: <http://www.fedemontori.eu/ns#>"
+		+ " PREFIX sioc: <http://rdfs.org/sioc/ns#>"
+		+ " SELECT ?x (count(?c) as ?fnd) WHERE {"
+		+ " ?x tto:hasRelationship ?r ."
+		+ " ?r tto:flame \"0\" ."
+		+ " ?r tto:hasCorrespondant ?c ."
+		+ " ?c sioc:follows ?x"
+		+ " } group by ?x";
 	
 	/**
 	 * @param args
@@ -149,10 +192,9 @@ public class Main {
 		Graph graph = Graph.create();
 		
 		Load ld = Load.create(graph);
-		ld.load("social_graph.rdf");
+		ld.load("social_graph_fn.rdf");
 		
 		QueryProcess exec = QueryProcess.create(graph);
-		
 
 		
 		try{
@@ -248,6 +290,44 @@ public class Main {
 				sum += Integer.parseInt(MapfBtwnD.get(couple));
 				MapfBtwn.put(Triple[2], Integer.toString(sum));
 			}
+			// Query for ratio between follower and flaming
+			map = exec.query(denFlm);
+			Map<String, String> MapDenFlm = new HashMap<>();
+			for (Mapping m : map){
+				MapDenFlm.put(((IDatatype) m.getValue("?x")).toString(), ((IDatatype) m.getValue("?flm")).toString());
+			}			
+			map = exec.query(flwFlm);
+			Map<String, String> MapFlwFlm = new HashMap<>();
+			for (Mapping m : map){
+				MapFlwFlm.put(((IDatatype) m.getValue("?x")).toString(), ((IDatatype) m.getValue("?flw")).toString());
+			}
+			map = exec.query(fndFlm);
+			Map<String, String> MapFndFlm = new HashMap<>();
+			for (Mapping m : map){
+				MapFndFlm.put(((IDatatype) m.getValue("?x")).toString(), ((IDatatype) m.getValue("?fnd")).toString());
+			}
+			// Query for ratio between follower and non flaming
+			map = exec.query(denNFlm);
+			Map<String, String> MapNDenFlm = new HashMap<>();
+			for (Mapping m : map){
+				MapNDenFlm.put(((IDatatype) m.getValue("?x")).toString(), ((IDatatype) m.getValue("?flm")).toString());
+			}			
+			map = exec.query(flwNFlm);
+			Map<String, String> MapNFlwFlm = new HashMap<>();
+			for (Mapping m : map){
+				MapNFlwFlm.put(((IDatatype) m.getValue("?x")).toString(), ((IDatatype) m.getValue("?flw")).toString());
+			}
+			map = exec.query(fndNFlm);
+			Map<String, String> MapNFndFlm = new HashMap<>();
+			for (Mapping m : map){
+				MapNFndFlm.put(((IDatatype) m.getValue("?x")).toString(), ((IDatatype) m.getValue("?fnd")).toString());
+			}			
+			
+			
+			int totFl = 0;
+			int totFlm = 0;
+			int totNf = 0;
+			int totNfl = 0;
 			
 			//Map<String, Result> FinalMap = new HashMap<>();
 			for (String key : MapfGeneral.keySet()) {
@@ -265,9 +345,24 @@ public class Main {
 				System.out.println("    - outDegree (NonFlaming, weighted) with depth 1: " + MapfoutDN1.get(key));
 				System.out.println("    - Closeness Centrality: " + MapfClsCnt.get(key));
 				System.out.println("    - in-Betweenness: " + MapfBtwn.get(key));
+				System.out.println("    - follows " + MapFlwFlm.get(key) + " and is followed by " + MapFndFlm.get(key) + " in " + MapDenFlm.get(key) + " direct flaming interaction.");
+				System.out.println("    - follows " + MapNFlwFlm.get(key) + " and is followed by " + MapNFndFlm.get(key) + " in " + MapNDenFlm.get(key) + " direct non flaming interaction.");
+				if (MapDenFlm.get(key) != null){
+					totFl += Integer.parseInt(MapDenFlm.get(key));
+				}
+				if (MapFlwFlm.get(key) != null){
+					totFlm += Integer.parseInt(MapFlwFlm.get(key));
+				}
+				if (MapNDenFlm.get(key) != null){
+					totNf += Integer.parseInt(MapNDenFlm.get(key));
+				}
+				if (MapNFlwFlm.get(key) != null){
+					totNfl += Integer.parseInt(MapNFlwFlm.get(key));
+				}
 			}
 
-			
+			System.out.println((((float)totFlm)/((float)totFl))*100 + " of the flaming relationships are characterized by following relationships.");
+			System.out.println(((float)totNfl/(float)totNf)*100 + " of the non flaming relationships are characterized by following relationships.");
 			
 //				   dt.intValue();
 //				   dt.doubleValue();

@@ -1,3 +1,4 @@
+
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -19,7 +20,9 @@ import enchant
 from guess_language import guess_language
 # Downloaded from https://pypi.python.org/pypi/stemming/1.0#downloads
 #from stemming.porter2 import stem
+import time
 
+from Semantic_Tagger import classifyTweet
 from TT_prep import *
 from TT_baseline import *
 from TT_debate import *
@@ -28,9 +31,10 @@ from TT_scorer import *
 from TT_SSWinitializer import *
 from TT_TWgatherer import *
 
-def printhelp():
-	sys.stdout.write("Insert an keyword or --no-tweet for analysis only.\nInsert --no-proc if you want only to retrieve tweets.\nInsert -q if you want the analysis on the keyword inserted.")
-			
+#GLOBAL VARIABLES
+
+tm = time.time()
+		
 # Global list of tweets: every element is a dictionary
 archive_list = []
 
@@ -45,6 +49,47 @@ pwl = enchant.request_pwl_dict('dicts/bad-words.txt')
 Dict = enchant.DictWithPWL('en_US', 'dicts/bad-words.txt')
 slg = mount_slang_dict()
 
+# Measurments used in feature evaluation
+fla_upp = 0.0
+nfla_upp = 0.0
+tmp_upp = 0.0
+fla_mrk = 0.0
+nfla_mrk = 0.0
+tmp_mrk = 0.0
+fla_gsm = 0.0
+nfla_gsm = 0.0
+tmp_gsm = 0.0
+fla_bsm = 0.0
+nfla_bsm = 0.0
+tmp_bsm = 0.0
+fla_ins = 0.0
+nfla_ins = 0.0
+tmp_ins = 0.0
+fla_dis = 0.0
+nfla_dis = 0.0
+tmp_dis = 0.0
+fla_pol = 0.0
+nfla_pol = 0.0
+tmp_pol = 0.0
+
+# Measurments used in final result evaluation
+flamesnum = 0.0
+flamesgsbs = 0.0
+flamesgs = 0.0
+noflamesnum = 0.0
+noflamesgs = 0.0
+noflamesgsbs = 0.0
+flamesboh = 0.0
+flamesbohbs = 0.0
+noflamesboh = 0.0
+noflamesbohbs = 0.0
+
+universal_user_array = {}
+
+def printhelp():
+	sys.stdout.write("Insert an keyword or --no-tweet for analysis only.\nInsert --no-proc if you want only to retrieve tweets.\nInsert -q if you want the analysis on the keyword inserted.")
+
+# Main flow
 if __name__ == "__main__":
 	print "\n------------------------------------------------------------------------------------"
 	print "| WELCOME TO TURKUAZURCHESE, A TOOL TO FIND FLAMES AMONG CONVERSATIONS IN TWITTER! |"
@@ -80,21 +125,27 @@ if __name__ == "__main__":
 	fill_politeness_corpus()
 	sys.stdout.write("done!\n")
 	
-	# Mount the debate corpus
-	# sys.stdout.write("Gathering and formatting Debate corpus... ")
-	# fill_debate_corpus()
-	# sys.stdout.write("done!\n")
+# 	# Mount the flaming corpus
+# 	sys.stdout.write("Gathering and formatting TurkuazTurchese flaming corpus... ")
+# 	fill_fl_corpus()
+# 	sys.stdout.write("done!\n")
 	
-	# Open the csv files and add every line to the archive list
-	# for filename in glob.glob(os.path.join('twitter_archives/csv_processes/', 'process_*.csv')):
-	# 	with open(filename, 'rb') as csvfile: 
-	# 		archive = csv.DictReader(csvfile, dialect='excel')
-	# 		for csvrow in archive:
-	# 			archive_list.append(csvrow)
+	# DEBATE CORPUS - Doesn't fit
+			# Mount the debate corpus
+			# sys.stdout.write("Gathering and formatting Debate corpus... ")
+			# fill_debate_corpus()
+			# sys.stdout.write("done!\n")
+			
+			# Open the csv files and add every line to the archive list
+			# for filename in glob.glob(os.path.join('twitter_archives/csv_processes/', 'process_*.csv')):
+			# 	with open(filename, 'rb') as csvfile: 
+			# 		archive = csv.DictReader(csvfile, dialect='excel')
+			# 		for csvrow in archive:
+			# 			archive_list.append(csvrow)
 			
 	# Open the file where the selected data is stored and put it into a list
 	sys.stdout.write("Gathering data from tweet files... ")
-	if '-q' in sys.argv and not (keyword == ''):
+	if '-q' in sys.argv and not (keyword == ''): # Read just for the designed one with the -q opt
 		archive_list = readfromfile(keyword)
 	else:
 		archive_list = readfromall()
@@ -107,16 +158,14 @@ if __name__ == "__main__":
 				
 		sys.stdout.write("Processing tweets one by one (output information in the output file)...\n\n")
 		
-		#Arrays where we gather respectively tweets and users in a same conversation.
-		#we empty the arrays when the conversation is over and we pass the value to "passed"
+		# Arrays where we gather respectively tweets and users in a same conversation.
+		# we empty the arrays when the conversation is over and we pass the value to "passed" later
 		actual = []
 		actualU = []
 		
 		for idx, tweet in enumerate(archive_list):
 			
-			# Count uppercases, smiley, exclamation marks and question marks
-	# 		tweet['uppercases'] = n_upper_chars(tweet['text'])
-	# 		tweet['marks'] = n_marks_chars(tweet['text'])
+			# Count smiley
 			tweet['good'] = n_good_smile(tweet['text'])
 			tweet['bad'] = n_bad_smile(tweet['text'])
 			
@@ -124,10 +173,9 @@ if __name__ == "__main__":
 			# Inside the function calls the slang translation before eliminating marks
 			utftext = put_readable(tweet['text'].decode('utf-8'), slg)
 			
+			# Count uppercases and marks 
 			tweet['uppercases'] = n_upper_chars(utftext)
 			tweet['marks'] = n_marks_chars(utftext)
-	# 		tweet['good'] = n_good_smile(utftext)
-	# 		tweet['bad'] = n_bad_smile(utftext)
 			
 			# Remove useless punctuation and put everything in lower case
 			utftext = lower_punct(utftext)
@@ -144,32 +192,111 @@ if __name__ == "__main__":
 		
 				utftext = " ".join(word for word in spell_correct(tweet['text_processed_unigrams'], Dict))
 	
-				# Process vulgarity
-				#tweet['vulgarity'] = process_vulgarity(tweet['text_processed_unigrams'], pwl)
+				# Process remaining features and save them into a dictionary
+				tweet['rawvulgarity'] = process_vulgarity(tweet['text_processed_unigrams'], pwl)
 				tweet['vulgarity'] = process_insults(tweet['text_processed_unigrams'], pwl)
 				tweet['unpoliteness'] = process_politeness(tweet['text_processed_unigrams'], tweet['text_processed_bigrams'])
 				tweet['disagreement'] = process_vs(utftext)
-				#tweet['disagreement'] = process_disagreement(tweet['text_processed_unigrams'], tweet['text_processed_bigrams'], tweet['topic'])
+				tweet['fl_corpus'] = process_fl(tweet['text_processed_unigrams'], tweet['text_processed_bigrams'])
+				tweet['polarity'] = 2 - tweet['polarity']
+				
+# 				polarity = classifyTweet(utftext)
+# 				if polarity == 'positive':
+# 					tweet['polarity'] = 1
+# 				elif polarity == 'negative':
+# 					tweet['polarity'] = -1
+# 				else: tweet['polarity'] = 0
+				
+				# Partial sums of the feature evaluations
+				tmp_upp += tweet['uppercases']
+				tmp_mrk += tweet['marks']
+				tmp_gsm += tweet['good']
+				tmp_bsm += tweet['bad']
+				tmp_ins += tweet['vulgarity']
+				tmp_dis += tweet['disagreement']
+				tmp_pol += tweet['polarity']
 				
 				actual.insert(0, tweet)
-				actualU.insert(0, getTWUser(tweet))
+				actualU.append(tweet['username']) #actualU.insert(0, getTWUser(tweet))
 				if tweet['rep'] == 0:
+					twn = float(len(actual))
 					passed = actual
 					passedU = Counter(actualU)
 					actual = []
 					actualU = []
 					
-					# decide if it's a flame or not and append user information to the SSW list
-					checker = compute_baseline_score(passed)
-					advanced_checker = compute_score(passed)
+					# FIXME Decide if it's a flame or not and append user information to the SSW list
+					checker = compute_baseline_score(passed) - 3
+					advanced_checker = compute_score(passed) - 3
+				
+					# Stuff for evaluation part (only if we have the field flame in the last tweet of the conv)
+					if tweet['flame'] == 1:
+						flamesnum += 1.0
+						
+						# Store all the features 
+						fla_upp += tmp_upp/twn
+						fla_mrk += tmp_mrk/twn
+						fla_gsm += tmp_gsm/twn
+						fla_bsm += tmp_bsm/twn
+						fla_ins += tmp_ins/twn
+						fla_dis += tmp_dis/twn
+						fla_pol += tmp_pol/twn
+						
+						if checker >= 0:
+							flamesgsbs += 1.0
+						if advanced_checker >= 0:
+							flamesgs += 1.0	
+					else:
+						noflamesnum += 1.0
+						
+						#Store all the features
+						nfla_upp += tmp_upp/twn
+						nfla_mrk += tmp_mrk/twn
+						nfla_gsm += tmp_gsm/twn
+						nfla_bsm += tmp_bsm/twn
+						nfla_ins += tmp_ins/twn
+						nfla_dis += tmp_dis/twn
+						nfla_pol += tmp_pol/twn		
+						
+						if checker < 0:
+							noflamesgsbs += 1.0
+						if advanced_checker < 0:
+							noflamesgs += 1.0
+					if checker < 0:
+						noflamesbohbs += 1.0
+					else: 
+						flamesbohbs += 1.0
+					if advanced_checker < 0:
+						noflamesboh += 1.0
+						denote = 0
+					else: 
+						flamesboh += 1.0
+						denote = 1
 					
-					# Add the user ids of the flame to a file "users" in single copy
-	# 					g.write("////")
-					if advanced_checker > 5:
+					# Insert conversation users in the universal list
+					for user in passedU:
+						for user2 in passedU:
+							if not user == user2:
+								if user not in universal_user_array.keys():
+									universal_user_array[user] = []
+								universal_user_array[user].append((passedU[user],denote,user2))
+					
+	
+					# Zero to all the temp features
+					tmp_upp = 0.0
+					tmp_mrk = 0.0
+					tmp_gsm = 0.0
+					tmp_bsm = 0.0
+					tmp_ins = 0.0
+					tmp_dis	= 0.0
+					tmp_pol = 0.0
+	
+				# Stuff for SSW part
+					if advanced_checker >= 0:
 	# 						g.write("F")
 						flames.append(passed)
-						for x in passedU:
-							passedU[x] *= -1
+				#		for x in passedU:
+				#			passedU[x] *= -1
 	# 						for x in passed:
 	# 							g.write("-"+x['user_id']) #XXX
 					else:
@@ -177,23 +304,35 @@ if __name__ == "__main__":
 						noflames.append(passed)
 	# 						for x in passed:
 	# 							g.write("-"+x['user_id'])
-					flamesU.append(passedU)
+				#	flamesU.append(passedU)
 	
-	
-					f.write("<conversation baseline="+str(checker)+" TT="+str(advanced_checker)+">\n")
+					# Spit out the output
+					f.write("<conversation baseline="+str(checker)+" TT="+str(advanced_checker)+">  "+str(tweet['flame'])+"\n")
 					for tw in passed:
-						f.write(tw['username']+" ==> "+tw['text'].encode('utf-8')+"\n	"+"		<vulgarity: "+str(tw['vulgarity'])+"; unpoliteness: "+str(tw['unpoliteness'])+"; marks: "+str(tw['marks'])+"; uppercases: "+str(tw['uppercases'])+"; smileys: "+str(tw['good'])+"; disagreement: "+str(tw['disagreement'])+">\n")
+						f.write(tw['username']+" ==> "+tw['text'].encode('utf-8')+"\n	"+"		<vulgarity: "+str(tw['rawvulgarity'])+"/"+str(tw['vulgarity'])+"; unpoliteness: "+str(tw['unpoliteness'])+"; marks: "+str(tw['marks'])+"; uppercases: "+str(tw['uppercases'])+"; smileys: "+str(tw['good'])+"; disagreement: "+str(tw['disagreement'])+"; pplxity: "+str(tw['fl_corpus'])+">\n")
 					f.write("<\conversation>\n\n")
-	# 			f.write("Tweet #" + str(idx+1) + " english; vulgarity: "+str(tweet['vulgarity'])+"; unpoliteness: "+str(tweet['unpoliteness'])+"\n")
-	# 			f.write(tweet['text'].encode('utf-8')+'\n')
-	# 			f.write(utftext.encode('utf-8')+'\n') 
 					
 				print "Tweet "+str(idx+1)+" checked!"
-		sys.stdout.write("done!\n")
+		sys.stdout.write("done! Computed in " + str(time.time() - tm) + " seconds.\n\n")
 		
-		with open("almost_final", 'w') as g:
-			g.write(str(flamesU))
-			
-	sys.stdout.write("Now moving to the SNA...\n")
+# 		with open("almost_final", 'w') as g:
+# 			g.write(str(flamesU))
+
+	print "Uppercases: flaming " + str(fla_upp/flamesnum) + " nonflaming " + str(nfla_upp/noflamesnum) + "."
+	print "Marks: flaming " + str(fla_mrk/flamesnum) + " nonflaming " + str(nfla_mrk/noflamesnum) + "."
+	print "Good Smileys: flaming " + str(fla_gsm/flamesnum) + " nonflaming " + str(nfla_gsm/noflamesnum) + "."
+	print "Bad Smileys: flaming " + str(fla_bsm/flamesnum) + " nonflaming " + str(nfla_bsm/noflamesnum) + "."
+	print "Insults: flaming " + str(fla_ins/flamesnum) + " nonflaming " + str(nfla_ins/noflamesnum) + "."
+	print "Disagreement: flaming " + str(fla_dis/flamesnum) + " nonflaming " + str(nfla_dis/noflamesnum) + "."
+	print "Negativity flaming " + str(fla_pol/flamesnum) + " nonflaming " + str(nfla_dis/noflamesnum) + ".\n"
+	print "Baseline Precision: "+str(flamesgsbs/flamesbohbs)+"/"+str(noflamesgsbs/noflamesbohbs)+" Recall: "+str(flamesgsbs/flamesnum)+"/"+str(noflamesgsbs/noflamesnum) + "."
+	print "Our Precision: "+str(flamesgs/flamesboh)+"/"+str(noflamesgs/noflamesboh)+" Recall: "+str(flamesgs/flamesnum)+"/"+str(noflamesgs/noflamesnum) + ".\n"
 	
-	SSW_init()
+	# TODO substitute keys with sets
+	sys.stdout.write("Elaborating output on file... ")
+	with open('raw_users','w') as g:
+		g.write(str(universal_user_array))
+	sys.stdout.write("done!\n") 
+			
+	sys.stdout.write("Now moving to the SNA...\n\n")
+#SSW_init()

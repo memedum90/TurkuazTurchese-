@@ -14,6 +14,7 @@ import glob
 import tweepy
 import os
 import json
+import time
 
 from random import randint
 
@@ -286,12 +287,21 @@ def getUserInfo(userid):
 def getUserFollowers(userid):
     followerlist=[]
     
-    follower_cursors = tweepy.Cursor(api.followers_ids, userid)
+    #follower_cursors = tweepy.Cursor(api.followers_ids, userid)
+    follower_cursors = tweepy.Cursor(api.followers, screen_name="twitter").items()
     
-    for followerid in follower_cursors.items():
-        
-        followerlist.append(followerid)    
-    return followerlist
+    try:
+        for followerid in follower_cursors:
+            print followerid.screen_name
+            followerlist.append(followerid.screen_name)    
+        return followerlist
+    except:
+        print "Sleeping..."
+        time.sleep(300)
+        for followerid in follower_cursors:
+            print followerid.screen_name
+            followerlist.append(followerid.screen_name)    
+        return followerlist
 
  #input a user id
  #output a list consisting of friend ids   
@@ -307,11 +317,11 @@ def getUserFriends(userid):
     return friendslist
 
 def getUserAll(id):
-    friendlist=getUserFriends(id)
-    followerlist=getUserFollowers(id)
+    # friendlist=getUserFriends(id)
+    # followerlist=getUserFollowers(id)
     user=getUserInfo(id)
-    user['friends']=friendlist
-    user['followers']=followerlist
+    # user['friends']=friendlist
+    # user['followers']=followerlist
     return user
 
 def getTWUser(tweet):
