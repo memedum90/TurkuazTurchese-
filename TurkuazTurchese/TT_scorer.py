@@ -50,7 +50,8 @@ SWmrk = 2.0 # Weigth assigned to one question or exclamation mark
 SWgud = -10 # Weigth assigned to one good smiley
 SWbad = -0.5 # Weight assigned to one bad smiley
 SWvlg = 4 # Weight assigned to one bad or risky word
-SWdis = 6 # Weight assigned to one disagreement point
+SWdis = 8 # Weight assigned to one disagreement point
+SWpol = 2 # Weight assigned to one negativity point
 
 # Final function to compute the overall score of a conversation
 def compute_score(conver):
@@ -69,12 +70,14 @@ def compute_score(conver):
         STvlg += tw['vulgarity']
         STdis += tw['disagreement']
         STpol += tw['polarity']
-    STupp /= len(conver)
-    STmrk /= len(conver)
-    STgud /= len(conver)
-    STbad /= len(conver)
-    STvlg /= len(conver)
-    STdis /= len(conver)
-    STpol /= len(conver)
-#     return float(SWupp*STupp + SWmrk*STmrk + SWgud*STgud + SWvlg*STvlg + SWbad*STbad + SWdis*STdis) / (len(conver))
-    return float(STvlg*3.512366452 + STdis*17.639133144 + STpol*2.035484006) - STgud*5
+#     STupp /= len(conver)
+#     STmrk /= len(conver)
+#     STgud /= len(conver)
+#     STbad /= len(conver)
+#     STvlg /= len(conver)
+#     STdis /= len(conver)
+#     STpol /= len(conver)
+#    return float(SWupp*STupp + SWmrk*STmrk + SWgud*STgud + SWvlg*STvlg + SWbad*STbad + SWdis*STdis + STpol) / (len(conver))
+#    return float(STvlg*3.512366452 + STdis*17.639133144 + STpol*2.035484006) - STgud*5
+#     return float(STupp + STmrk - STgud + STvlg - STbad + STdis + STpol)
+    return float(SWupp*STupp + SWmrk*STmrk + SWgud*STgud + SWvlg*STvlg + SWbad*STbad) / (len(conver)) + SWdis*STdis + STpol

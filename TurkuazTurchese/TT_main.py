@@ -72,6 +72,9 @@ fla_pol = 0.0
 nfla_pol = 0.0
 tmp_pol = 0.0
 
+chkF = 0.0
+chkN = 0.0
+
 # Measurments used in final result evaluation
 flamesnum = 0.0
 flamesgsbs = 0.0
@@ -176,7 +179,10 @@ if __name__ == "__main__":
 			# Count uppercases and marks 
 			tweet['uppercases'] = n_upper_chars(utftext)
 			tweet['marks'] = n_marks_chars(utftext)
-			
+
+# 			tweet['uppercases'] /= (float(len(utftext)) + 0.000001)
+# 			tweet['marks'] /= (float(len(utftext)) + 0.000001)
+# 			
 			# Remove useless punctuation and put everything in lower case
 			utftext = lower_punct(utftext)
 			
@@ -198,7 +204,7 @@ if __name__ == "__main__":
 				tweet['unpoliteness'] = process_politeness(tweet['text_processed_unigrams'], tweet['text_processed_bigrams'])
 				tweet['disagreement'] = process_vs(utftext)
 				tweet['fl_corpus'] = process_fl(tweet['text_processed_unigrams'], tweet['text_processed_bigrams'])
-				tweet['polarity'] = 2 - tweet['polarity']
+				tweet['polarity'] = 2 - tweet['polarity'] - 1
 				
 # 				polarity = classifyTweet(utftext)
 # 				if polarity == 'positive':
@@ -219,15 +225,16 @@ if __name__ == "__main__":
 				actual.insert(0, tweet)
 				actualU.append(tweet['username']) #actualU.insert(0, getTWUser(tweet))
 				if tweet['rep'] == 0:
-					twn = float(len(actual))
+# 					twn = float(len(actual))
+					twn = 1
 					passed = actual
 					passedU = Counter(actualU)
 					actual = []
 					actualU = []
 					
 					# FIXME Decide if it's a flame or not and append user information to the SSW list
-					checker = compute_baseline_score(passed) - 3
-					advanced_checker = compute_score(passed) - 3
+					checker = compute_baseline_score(passed) - 3.0
+					advanced_checker = compute_score(passed) - 3.0
 				
 					# Stuff for evaluation part (only if we have the field flame in the last tweet of the conv)
 					if tweet['flame'] == 1:
@@ -241,6 +248,7 @@ if __name__ == "__main__":
 						fla_ins += tmp_ins/twn
 						fla_dis += tmp_dis/twn
 						fla_pol += tmp_pol/twn
+						chkF += advanced_checker 
 						
 						if checker >= 0:
 							flamesgsbs += 1.0
@@ -257,6 +265,7 @@ if __name__ == "__main__":
 						nfla_ins += tmp_ins/twn
 						nfla_dis += tmp_dis/twn
 						nfla_pol += tmp_pol/twn		
+						chkN += advanced_checker
 						
 						if checker < 0:
 							noflamesgsbs += 1.0
@@ -325,6 +334,7 @@ if __name__ == "__main__":
 	print "Insults: flaming " + str(fla_ins/flamesnum) + " nonflaming " + str(nfla_ins/noflamesnum) + "."
 	print "Disagreement: flaming " + str(fla_dis/flamesnum) + " nonflaming " + str(nfla_dis/noflamesnum) + "."
 	print "Negativity flaming " + str(fla_pol/flamesnum) + " nonflaming " + str(nfla_dis/noflamesnum) + ".\n"
+	print "in toto flaming " + str(chkF/flamesnum) + " nonflaming " + str(chkN/noflamesnum) + ".\n"
 	print "Baseline Precision: "+str(flamesgsbs/flamesbohbs)+"/"+str(noflamesgsbs/noflamesbohbs)+" Recall: "+str(flamesgsbs/flamesnum)+"/"+str(noflamesgsbs/noflamesnum) + "."
 	print "Our Precision: "+str(flamesgs/flamesboh)+"/"+str(noflamesgs/noflamesboh)+" Recall: "+str(flamesgs/flamesnum)+"/"+str(noflamesgs/noflamesnum) + ".\n"
 	
