@@ -1,0 +1,31 @@
+TURKUAZ TURCHESE - A software to identify flaming among conversations and perforn SNA on it
+
+Here are the steps to run our program.
+WARNING: our program is tested only using the PyDev plugin for eclipse (version Kepler).
+There's no warranty that works on every linux terminal.
+
+---- PREREQUISITES
+The program needs the libraries enchant and guess_language for python to be installed.
+The latter can be found on https://bitbucket.org/spirit/guess_language
+
+	sudo apt-get install python-enchant
+
+
+---- RUNNING 
+The first step is to run the flaming classifier. This will extract the tweets in all the text files in the directory "archives", process them and store the output in the file "output". For the next step it stores the users processed by conversations in the file "raw_users". To run the classifier, type the command:
+
+	python TT_main.py --no-tweets
+
+Furthermore, a script to retrieve new tweets is available. Be careful, this script will save tweets in the same "archives" folder, but the tweets are not manually annotate so, with the current settings, the program will not work with the new tweets. To run the script type the following command:
+
+	./cycle
+
+The next step is to build the RDF graph which characterizes the users situations. As this part checkes the following/unfollowing relationships between two users, due to the twitter limitations the program takes more than two hours to run. To build the graph run the following command:
+
+	python TT_SSWinitializer -e
+
+This will store the graph into the file "SNA/rdf_graph_fn.rdf". To analyze it and perform the Social Network Analysis queries run the command:
+
+	java -jar TT_SNAplugin.jar
+
+The output will be displayed in the standard output.

@@ -1,0 +1,37 @@
+def use_features(tweet,label=None):
+    features={}
+    
+    if label == "positive" or label == "not_positive" :
+	features.update(feature_bestwords(tweet))
+	features.update(feature_bestbigrams(tweet)) #500
+	#features.update(feature_words(tweet))
+	#features.update(feature_bigrams(tweet))
+	features.update(allfeats[tweet["sid"]]["afinn"])
+	features.update(allfeats[tweet["sid"]]["sent"])
+        features.update(allfeats[tweet["sid"]]["arzu"]) #off
+	features.update(allfeats[tweet["sid"]]["tag"]) #off
+	#features.update(allfeats[tweet["sid"]]["extras"])
+        features.update(allfeats[tweet["sid"]]["repetition"]) #deprecated
+	#features.update(allfeats[tweet["sid"]]["wordshape"]) #in best words called function
+	#features.update(allfeats[tweet["sid"]]["firstlastword"])
+	#features.update(allfeats[tweet["sid"]]["chat"])
+	#features.update(allfeats[tweet["sid"]]["abbrev"])
+	features.update(allfeats[tweet["sid"]]["interjection"])
+	#features.update(allfeats[tweet["sid"]]["punctuation"])
+	#features.update(allfeats[tweet["sid"]]["negation"])
+	features.update(allfeats[tweet["sid"]]["hash"])
+	features.update(allfeats[tweet["sid"]]["emotion"])
+	features.update(allfeats[tweet["sid"]]["lingemotion"])
+	#features.update(allfeats[tweet["sid"]]["wordnet"])
+	features.update(allfeats[tweet["sid"]]["emo"])
+	#features.update(allfeats[tweet["sid"]]["arda"])
+	#features.update(feature_afinn(tweet))
+	
+	
+	# POS features TODO gercek pos tagger ile dene
+	#features.update(allfeats[tweet["sid"]]["posextras"]) #off
+	#features.update(feature_posbestwords(tweet))
+	#features.update(feature_poswords(tweet))
+	#features.update(feature_posbigrams(tweet))
+	#features.update(feature_firstlastword(tweet,pos=True))
+	#features.update(feature_posbestbigrams(tweet))

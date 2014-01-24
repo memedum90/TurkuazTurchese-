@@ -1,0 +1,39 @@
+TEAM BOUNCE
+Computer Engineering Department, Bogazici University, ISTANBUL, TURKEY
+
+Contact:
+Nadin Kokciyan nadin.kokciyan@boun.edu.tr
+Arda Celebi ardax.celebi@gmail.com
+Arzucan Ozgur arzucan.ozgur@boun.edu.tr
+Suzan Uskudarli suzan.uskudarli@boun.edu.tr
+
+Core Approach:
+For the classification in TaskB, we use a binary classification approach. We train two classifiers, one Positive Classifier(based on Maximum Entropy model), and on Negative Classifier (based on Naive Bayes). We assign each tweet to positive, negative, or neutral according to probabilities.
+
+It was a supervised training. We created many features for each interval and run the classifier on those features interval-by-interval
+
+Critical features we use:
+ * length of interval
+ * sentiment sequences in the interval (eg. pos-pos, pos-neg)
+ * sentiment+POS sequences in the interval (eg. pos_v, pos_a-neg_n)
+ * number of sentiment indicators from left and right intervals
+ * length of surronding intervals and itself
+ * word of the single-word intervals
+ * afinn scores
+ * averaged SentiWordnet scores
+ * Porter Stemmer in Python
+
+Critical tools and resource we use:
+ * MaxEnt written by Zhang Le
+ * CMU's ARK Tagger
+ * CMU's Word clusters (extracted from 50M Tweets)
+ * AFINN sentiment scores
+ * SentiWordNet
+ * Emotion words by Steven J. DeRose (http://www.derose.net/steve/resources/emotionwords/ewords.html)
+ * NLTK Python Library
+
+Significant data pre/post-processing:
+ * We preprocess hashtags
+
+Other data used (outside of the provided):
+We didn't use any additional tweet other than the given ones. One thing is that we use word clusters from CMU which were extracted from 50M tweets

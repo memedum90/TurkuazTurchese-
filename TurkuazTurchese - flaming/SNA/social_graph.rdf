@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:xs="http://www.w3.org/2000/10/XMLSchema#"
+>
+  <owl:ObjectProperty rdf:about="http://www.fedemontori.eu/ns#hasConversation">
+    <xs:range rdf:resource="http://www.fedemontori.eu/ns#Conversation"/>
+    <xs:label xml:lang="en"> has Conversation </xs:label>
+    <xs:comment xml:lang="en"> Links personally an user to a conversation, let's say from his point of view. </xs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.fedemontori.eu/ns#hasCorrespondant">
+    <xs:comment xml:lang="en"> link a conversation with its correspondants </xs:comment>
+    <xs:label xml:lang="en"> has Correspondant user </xs:label>
+    <xs:range rdf:resource="http://www.fedemontori.eu/ns#UserAccount"/>
+  </owl:ObjectProperty>
+  <owl:Ontology rdf:about="http://www.fedemontori.eu">
+    <owl:versionInfo> Revision: 1.2 </owl:versionInfo>
+    <dc:title xml:lang="en"> TurkuazTurkese core ontology </dc:title>
+    <dc:description xml:lang="en"> TurkuazTurcheseOnto is an extension of sioc used to represent concepts like flaming and non-flaming conversation (so weighted relationships) </dc:description>
+  </owl:Ontology>
+  <owl:Class rdf:about="http://www.fedemontori.eu/ns#Conversation">
+    <xs:label xml:lang="en"> TTO conversation </xs:label>
+    <xs:comment xml:lang="en"> A class that represents a conversation among more people. </xs:comment>
+    <rdfs:subClassOf rdf:resource="sioc:Forum"/>
+  </owl:Class>
+</rdf:RDF>
